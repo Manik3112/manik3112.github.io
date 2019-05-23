@@ -1,0 +1,89 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Text</title>
+			<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+			<style type="text/css">
+			.btn{
+				background: #34a853;
+				border-radius: 3px;
+				width: 90%;
+				display: block;
+				margin: 0.6em auto;
+				padding: 5px;
+				font-family: sans-serif;
+				font-size: 2em;
+				font-weight: 900;
+				color: #fff;
+				border: none;
+			}
+			.btn:hover{
+				cursor: pointer;
+			}
+			#body{
+				display: block;
+				margin: auto;
+				width: 95%;
+				height: 40%;
+				font-family: sans-serif;
+				font-weight: 700;
+				font-size: 24px;
+			}
+			.heading{
+				text-align: center;
+				font-family: sans-serif;
+				color: #34a853;
+			}
+			.box{
+				box-shadow: 0px 0px 2px #686868;
+				width: 90%;
+				margin: 30px auto;
+				height: 14%;
+				overflow-x: scroll;
+			}
+			.btn-red{
+				background: #ea4335;
+			}
+		</style>
+	</head>
+<body>
+	<h1 class="heading">NotePad</h1>
+	<textarea id='body'></textarea>
+	<div class="box">
+		<button class="btn" onclick="my('A')">A</button>
+		<button class="btn" onclick="my('B')">B</button>
+		<button class="btn" onclick="my('C')">C</button>
+		<button class="btn" onclick="my('D')">D</button>
+		<button class="btn" onclick="my('E')">E</button>
+		<button class="btn" onclick="my('F')">F</button>
+		<button class="btn" onclick="my('G')">G</button>
+		<button class="btn" onclick="my('H')">H</button>
+		<button class="btn" onclick="my('I')">I</button>
+		<button class="btn" onclick="my('J')">A</button>
+		<button class="btn" onclick="my('K')">K</button>
+		<button class="btn" onclick="my('L')">L</button>
+		<button class="btn" onclick="my('M')">M</button>
+		<button class="btn" onclick="my('N')">N</button>
+		<button class="btn" onclick="my('O')">O</button>
+		<button class="btn" onclick="my('P')">P</button>
+		<button class="btn" onclick="my('Q')">Q</button>
+		<button class="btn" onclick="my('R')">R</button>
+		<button class="btn" onclick="my('S')">S</button>
+		<button class="btn" onclick="my('T')">T</button>
+		<button class="btn" onclick="my('U')">U</button>
+		<button class="btn" onclick="my('V')">V</button>
+		<button class="btn" onclick="my('W')">W</button>
+		<button class="btn" onclick="my('X')">X</button>
+		<button class="btn" onclick="my('Y')">Y</button>
+		<button class="btn" onclick="my('Z')">Z</button>
+	</div>
+		<div class="box">
+		<button class="btn btn-red" onclick="my(' ')">SPACE</button>
+	</div>
+</body>
+<script type="text/javascript">
+	function my(data){
+		document.getElementById('body').innerHTML += data;
+	}
+</script>
+</html>
