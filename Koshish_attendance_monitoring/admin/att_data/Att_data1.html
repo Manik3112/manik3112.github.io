@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>MARK ATTENDANCE</title>
+	<link rel="stylesheet" href="Att_data1.css">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<script src="./../../js/constants.js"></script>
+</head>
+
+<body>
+	<div id="loader" style="width: 100vw;background: rgba(255,255,255,0.5);position: absolute;z-index: 999;display: block;" class="text-center"><img src="https://i.pinimg.com/originals/78/e8/26/78e826ca1b9351214dfdd5e47f7e2024.gif" /></div>
+	<div class="holder">
+		<table width="100%">
+		<form onsubmit="event.preventDefault(); markMemberAttendance();" id="attForm">
+			<thead>
+				<tr>
+					<td colspan="5" class="text-center"><label for="date">Date</label><br><input type="date" id="date" required=""><hr></td>
+				</tr>
+				<tr>
+					<td>NAME</td>
+					<td>PRESENT</td>
+					<td>ABSENT</td>
+					<td>EXCUSE-ABSENT</td>
+					<td>EXTRA</td>
+				</tr>
+			</thead>
+			<tbody id="memberList">
+			</tbody>
+			<tr><td colspan="5">
+			<input type="submit" class="btn btn-warning" value="UPLOAD">
+			</td></tr>
+		</form>
+		</table>
+	</div>
+</body>
+<script type="text/javascript">
+	var membersArr = []
+	function getMembersName(){
+		var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				printMembersName(this.responseText)
+			}
+		};
+		xhttp.open("GET",serverUrl+"/get_member_name", true);
+		xhttp.setRequestHeader("Content-Type", "application/json");
+		xhttp.send();
+	}
+	function printMembersName(payload){
+		if(!payload){
+			return 1;
+		}
+		try{
+			payload = JSON.parse(payload)
+		}
+		catch(e){}
+		membersArr = payload.member_data_json
+		var tableBody = ''
+		for(var i=0; i<payload.member_data_json.length; i++){
+		tableBody += `<tr>
+			<td>${payload.member_data_json[i]}</td>
+			<td>
+			<div class="attendance">
+			<input name="${'member'+i}" type="radio" value="1" /> <span></span>
+			</div>
+			</td>
+			<td>
+			<div class="attendance">
+			<input name="${'member'+i}" type="radio" value="0" /> <span></span>
+			</div>
+			</td>
+			<td>
+			<div class="attendance">
+			<input name="${'member'+i}" type="radio" value="2" /> <span></span>
+			</div>
+			</td>
+			<td>
+			<div class="attendance">
+			<input name="${'member'+i}" type="radio" value="3" /> <span></span>
+			</div>
+			</td>
+			</tr>`
+		}
+		document.getElementById('memberList').innerHTML = tableBody;
+		document.getElementById('loader').style.display = 'none';
+	}
+	function markMemberAttendance(){
+		document.getElementById('loader').style.display = 'block';
+		var attArr = []
+		for(var i=0; i<membersArr.length; i++){
+			document.getElementsByName(`member${i}`).forEach(el => {
+				if(el.checked){
+					attArr.push(JSON.stringify({
+						"NAME" : membersArr[i].toUpperCase(),
+						"DATE" : document.getElementById('date').value,
+						"VALUE": el.value
+					}))
+				}
+			});
+		}
+		if(attArr.length != membersArr.length){
+			alert("Please Select All Attendance");
+			document.getElementById('loader').style.display = 'none';
+			return 0;
+		}
+		var count = 0
+		for(var i=0; i<attArr.length; i++){
+			var xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+					count++
+					console.log(this.responseText)
+					if(attArr.length == count){
+						alert("Everyone's Attendance has been Marked");
+						location.reload()
+					}
+				}
+			};
+			xhttp.open("POST",serverUrl+"/mark_attendance", true);
+			xhttp.setRequestHeader("Content-Type", "application/json");
+			xhttp.send(attArr[i]);
+		}
+	}
+	getMembersName()
+</script>
+
+</html>

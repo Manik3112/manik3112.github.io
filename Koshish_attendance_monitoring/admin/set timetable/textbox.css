@@ -1,0 +1,41 @@
+input {
+  width: 50%;
+  font-size:15px;
+  
+  }
+input[type=text] {
+  background-color: white;
+  background-position: 10px 10px;
+  padding: 8px 12px;
+  box-sizing: border-box;
+  margin: 8px 0;
+  border: 2px solid black;
+  border-radius: 4px;
+  color: black;
+  font-family: Muli regular;
+
+}
+input[type=checkbox]{ 
+  position: absolute;
+  color: blue;
+}
+body{
+	background-color: grey;
+	float: none;
+
+
+}
+input[type=submit]{
+background-color:#ffc200;
+color:white;
+font-family: Muli regular;
+padding:8px 12px;
+
+}
+label{
+	font-style: bold;
+	font-size: 18px;
+	font-family: Muli regular;
+
+	 
+}

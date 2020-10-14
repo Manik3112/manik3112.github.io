@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Text_box</title>
+	<link rel="stylesheet" href="text_box.css">
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="./../../js/constants.js"></script>
+
+</head>
+<body>
+<div class="container">
+<h1 id="lol"></h1>
+ <hr>
+<form id="memberForm">
+  <label for="fname">Name:</label><br>
+  <input type="text" id="fname" name="fname" placeholder="Enter your name" class='form-control'><br>
+  <label for="lname">Year of joining:</label><br>
+  <input type="number" id="lname" name="lname" placeholder="Enter year of joining"><br>
+  <label for="fname">Email:</label><br>
+  <input type="email" id="ename" name="ename" placeholder="Enter email"><br>
+  <label for="lname">Phone no:</label><br>
+  <input type="text" id="pname" name="pname" placeholder="Enter phone no"><br>
+  <label for="fname">Location:</label><br>
+  <input type="text" id="locname" name="locname" placeholder="Enter Location"><br>
+  <label for="lname">Is Admin:</label><br>
+  <select id="adname" name="adname">
+  <option value="1">Yes</option>
+  <option value="0">No</option>
+</select><br>
+  <label for="lname">Responsibility:</label><br>
+  <input type="text" id="rname" name="rname" placeholder="Enter Responsibility"><br>
+   </div>
+</form>
+<div class="container2"> 
+<form onsubmit="event.preventDefault(); myfunction();">
+	<h3>Select the day</h3>
+  <input type="checkbox" id="Day1" name="Day1" value="Bike">
+  <label for="Day1"> Sunday</label><br>
+  <input type="checkbox" id="Day2" name="Day2" value="Car">
+  <label for="Day2"> Monday</label><br>
+  <input type="checkbox" id="Day3" name="Day3" value="Boat">
+  <label for="Day3"> Tuesday</label><br>
+  <input type="checkbox" id="Day4" name="Day4" value="Car">
+  <label for="Day4"> Wednesday</label><br>
+  <input type="checkbox" id="Day5" name="Day5" value="Boat">
+  <label for="Day5"> Thrusday</label><br>
+   <input type="checkbox" id="Day6" name="Day6" value="Car">
+  <label for="Day6"> Friday</label><br>
+  <input type="checkbox" id="Day7" name="Day7" value="Boat">
+  <label for="Day7"> Saturday</label><br><br>
+
+
+  <input type="submit" value="Submit" id="hill">
+</form>
+</div>
+</body>
+<script>
+    function myfunction()
+    {
+    var data =JSON.stringify({
+
+     "NAME": document.getElementById('fname').value,
+     "YEAR_OF_JOINING":document.getElementById('lname').value,
+     "EMAIL":document.getElementById('ename').value,
+     "PHONE":document.getElementById('pname').value,
+     "LOCATION":document.getElementById('locname').value,
+     "IS_ADMIN":Number(document.getElementById('adname').value),
+     "RESPONSIBILITY":document.getElementById('rname').value,
+     "SUNDAY":document.getElementById("Day1").checked ? 1 : 0,
+     "MONDAY":document.getElementById("Day2").checked ? 1 : 0,
+     "TUESDAY":document.getElementById("Day3").checked ? 1 : 0,
+     "WEDNESDAY":document.getElementById("Day4").checked ? 1 : 0,
+     "THURSDAY":document.getElementById("Day5").checked ? 1 : 0,
+     "FRIDAY":document.getElementById("Day6").checked ? 1 : 0,
+     "SATURDAY":document.getElementById("Day7").checked ? 1 : 0
+ });
+      var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+     if (this.readyState == 4 && this.status == 200) {
+console.log ("##########")
+console.log(this.responseText)
+var result = this.responseText
+    document.getElementById("lol").innerHTML += result;   
+    document.getElementById('memberForm').reset()
+  }};
+  xhttp.open("POST",serverUrl+"/add_new_member", true);
+  xhttp.setRequestHeader("Content-Type", "application/json");
+  xhttp.send(data);
+  document.getElementById("hill").disabled = true;
+}
+</script>
+</html>

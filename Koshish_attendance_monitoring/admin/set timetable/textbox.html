@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Text_box</title>
+  <link rel="stylesheet" href="textbox.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="./../../js/constants.js"></script>
+
+</head>
+<body>
+<div class="container form-control">
+ 
+<form >
+  <label for="Name" >Choose a Name:</label><br>
+  <!--<input type="text" id="fname" name="fname" placeholder="Enter your name" class='form-control'><br>-->
+  <select name="Students" id="fname"class="dropdown1 "></select>
+
+ </div>
+</form>
+<div class="container2"> 
+<form onsubmit="event.preventDefault(); myfunction();" id="attForm">
+  <h3>Select the day</h3>
+  <input type="checkbox" id="Day1" name="Day1" value="Bike">
+  <label for="Day1"> Sunday</label><br>
+  <input type="checkbox" id="Day2" name="Day2" value="Car">
+  <label for="Day2"> Monday</label><br>
+  <input type="checkbox" id="Day3" name="Day3" value="Boat">
+  <label for="Day3"> Tuesday</label><br>
+  <input type="checkbox" id="Day4" name="Day4" value="Car">
+  <label for="Day4"> Wednesday</label><br>
+  <input type="checkbox" id="Day5" name="Day5" value="Boat">
+  <label for="Day5"> Thrusday</label><br>
+   <input type="checkbox" id="Day6" name="Day6" value="Car">
+  <label for="Day6"> Friday</label><br>
+  <input type="checkbox" id="Day7" name="Day7" value="Boat">
+  <label for="Day7"> Saturday</label><br><br>
+
+
+  <input type="submit" value="Submit">
+</form>
+<h2 id="lol"></h2>
+</div>
+</body>
+<script>
+     function myfunction()
+     {
+     var data =JSON.stringify({
+
+    "NAME": document.getElementById('fname').value,
+     "SUNDAY":document.getElementById("Day1").checked ? 1 : 0,
+     "MONDAY":document.getElementById("Day2").checked ? 1 : 0,
+     "TUESDAY":document.getElementById("Day3").checked ? 1 : 0,
+     "WEDNESDAY":document.getElementById("Day4").checked ? 1 : 0,
+     "THURSDAY":document.getElementById("Day5").checked ? 1 : 0,
+     "FRIDAY":document.getElementById("Day6").checked ? 1 : 0,
+     "SATURDAY":document.getElementById("Day7").checked ? 1 : 0,
+
+ });
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+     if (this.readyState == 4 && this.status == 200) {
+console.log ("##########")
+console.log(this.responseText)
+var result = this.responseText
+    document.getElementById("lol").innerHTML += result;
+  }};
+  xhttp.open("POST",serverUrl+"/set_time_table", true);
+  xhttp.setRequestHeader("Content-Type", "application/json");
+  xhttp.send(data);
+}
+
+function getMembersName(){
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        printMembersName(this.responseText)
+      }
+    };
+    xhttp.open("GET",serverUrl+"/get_member_name", true);
+    xhttp.setRequestHeader("Content-Type", "application/json");
+    xhttp.send();
+  }
+  function printMembersName(payload){
+    if(!payload){
+      return 1;
+    }
+    try{
+      payload = JSON.parse(payload)
+    }
+    catch(e){}
+    membersArr = payload.member_data_json
+    var tableBody = ''
+    for(var i=0; i<payload.member_data_json.length; i++){
+      tableBody += `<option value="${payload.member_data_json[i]}">${payload.member_data_json[i]}</option>`
+    }
+    document.getElementById('fname').innerHTML = tableBody;
+  }
+  getMembersName()
+  </script>
+
+</html>

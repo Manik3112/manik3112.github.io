@@ -1,0 +1,71 @@
+
+<html>
+<head>
+<link rel="stylesheet" href="textviewer.css" type="text/css">
+<meta charset="utf-8">
+ <link href="https://fonts.googleapis.com/css2?family=Rowdies&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="./../../js/constants.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <script>
+    var NAME = decodeURIComponent(window.location.search.match(/(\?|&)name\=([^&]*)/)[2]);
+    var START_DATE = decodeURIComponent(window.location.search.match(/(\?|&)date1\=([^&]*)/)[2]);
+	var END_DATE = decodeURIComponent(window.location.search.match(/(\?|&)date2\=([^&]*)/)[2]);
+	console.log(NAME,START_DATE,END_DATE)
+	 var data =JSON.stringify({
+    "NAME": NAME,
+    "START_DATE": START_DATE,
+    "END_DATE": END_DATE
+  });
+  console.log(data)
+
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      if(!this.responseText){
+        alert("Some Issue, Can't find data")
+      }
+    	var result = JSON.parse(this.responseText)
+      	document.getElementById("Name").innerHTML += result.NAME;
+       document.getElementById("Present").innerHTML += result.PRESENT;
+       document.getElementById("Absent").innerHTML += result.ABSENT;
+       document.getElementById("Excuse").innerHTML += result.INFORMED_ABSENT;
+       document.getElementById("Extra").innerHTML += result.EXTRA_PRESENT;
+      document.getElementById("turn").innerHTML += result.TOTAL_NO_OF_TURN;
+      document.getElementById("percentage").innerHTML += parseInt((result.PRESENT/result.TOTAL_NO_OF_TURN)*100);
+          
+    }
+  };
+  xhttp.open("POST", serverUrl+"/show_attendance", true);
+  xhttp.setRequestHeader("Content-Type", "application/json");
+  xhttp.send(data);
+  </script>
+<title></title>
+</head>
+<body>
+<div class="container">
+<div class="jumbotron bg-cover jumbotron-image shadow visible-lg visible-sm visible-md visible-xs">
+	<br><br><br><br><br><br><br><br></div>
+<div class="details visible-lg visible-sm visible-md visible-xs">
+ <ul>
+	<li id="Name">Name 				:      		</li>
+	<li id="Present">Total PRESENT 				:				</li>
+	<li id="Absent">Total Absent:				</li>
+	<li id="Excuse">Total excused absent 				:				</li>
+	<li id="Extra">Extra Present 				:				 </li>
+	<li id="turn">Total number of turn 				:				</li>
+	<li id="percentage">Precentage(%) 				:				</li>
+	<span><p>"It's the regurality of doing something makes the person happy rather than sitting idle."</p></span>
+
+
+	
+ </ul>
+</div>
+<p id="JSON"></p>
+</div>
+</body>
+</body>
+</html>

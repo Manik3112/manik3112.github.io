@@ -1,0 +1,41 @@
+body{
+    background-color:rgba(87, 85, 85, 0.596);
+    font-family: Muli regular;
+    font-size: 30;
+
+}
+h1{
+    font-family: Muli Regular;
+    font-size: 80px;
+}
+.rupali{	
+        padding:30%;
+        margin-top:30px ;
+        margin-left:50px;
+        text-align:centre;
+        padding: 3px 7px;
+        font-size: 50px;
+       ;
+}
+
+.container{ text-align:centre;
+
+
+}
+
+
+.btn {
+    background-color: #ffc200;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+  }
+  section{
+      font-size: 50px;
+  }
+  
+  
