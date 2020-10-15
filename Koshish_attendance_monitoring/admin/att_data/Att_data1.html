@@ -102,7 +102,7 @@
 		var attArr = []
 		for(var i=0; i<membersArr.length; i++){
 			document.getElementsByName(`member${i}`).forEach(el => {
-				if(el.checked){
+				if(el.checked && el.value != 4){
 					attArr.push(JSON.stringify({
 						"NAME" : membersArr[i].toUpperCase(),
 						"DATE" : document.getElementById('date').value,
