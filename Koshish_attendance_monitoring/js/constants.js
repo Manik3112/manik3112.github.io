@@ -1,4 +1,4 @@
 /*
 * Author : Manik Rastogi
 */
-let serverUrl = "https://94dc7232372c.ngrok.io"
+let serverUrl = "https://dd6b5ac5af73.ngrok.io"
