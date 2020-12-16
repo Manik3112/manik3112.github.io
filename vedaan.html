@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wizard</title>
+  <style type="text/css">
+  	@font-face {
+	    font-family: Nexa;
+	    src: url("Nexa_Bold.otf") format("opentype");
+	}
+	body{
+		font-family: Nexa !important;
+	}
+	.space10{
+		height: 2em;
+		display: block;
+	}
+	.font14{
+		font-size: 24px;
+	}
+	.colorGrey{
+		color: rgba(0,0,0,0.4);
+	}
+	.form-control,select{
+		border-top: none !important;
+		border-left: none !important;
+		border-right: none !important;
+		border-radius: 0px !important;
+		margin-top: -1em;
+	}
+	.set{
+		transition: 1s;
+	}
+	.hiddenSet{
+		opacity: 0 !important;
+	}
+	.btnBorder{
+		border: solid 1px rgba(0,0,0,0.1) !important;
+	}
+  </style>
+  <!-- CSS only -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+
+<div class="container">
+  <div class="row">
+  	<div class="d-flex align-items-center justify-content-center w-100" style="height: 100vh;">
+  		<div class="set card w-100" style="padding: 3em;">
+		  <div class="card-body">
+		    <h2 class="card-title">Vedaan</h2>
+		    <hr>
+		    <span class="space10"></span>
+		    <!-- Form Start -->
+		    <label class="font14 colorGrey">Name</label><br>
+		    <input type="text" class="form-control" id="name">
+			<br>
+		    <label class="font14 colorGrey">Sex</label><br>
+		    <select class="custom-select" id="sex">
+			  <option selected>Select Gender</option>
+			  <option value="1">Male</option>
+			  <option value="2">Female</option>
+			</select>
+			<br>
+			<br>
+		    <label class="font14 colorGrey">Body Type</label><br>
+		    <select class="custom-select" id="bodyType">
+			  <option selected>Select Body Type</option>
+			  <option value="1">Very Skinny</option>
+			  <option value="2">Thin</option>
+			  <option value="3">Fit</option>
+			  <option value="4">Obese</option>
+			  <option value="5">Very Obese</option>
+			</select>
+			<br>
+			</div>
+			<!-- Form End -->
+		    <span class="space10"></span>
+		    <br>		    
+		    <table class="w-100">
+		    	<tr>
+		    		<td><a class="btn btn-lg w-25 btnBorder float-left" onclick="moveNext(-1)">Previous</a></td>
+		    		<td><a class="btn btn-lg w-25 btnBorder float-right" onclick="moveNext(1)">Next</a></td>
+		    	</tr>
+		    </table>
+		</div>
+		<div class="set hiddenSet card w-100" style="padding: 3em;display: none;">
+		  <div class="card-body">
+		    <h2 class="card-title">Vedaan</h2>
+		    <hr>
+		    <span class="space10"></span>
+		    <!-- Form Start -->
+			<br>
+		    <label class="font14 colorGrey">Body Check-Up type</label><br>
+		    <select class="custom-select" id="bodyType">
+			  <option selected>Select Check-Up Type</option>
+			  <option value="1">Full Body Checkup(3-5 min)</option>
+			  <option value="2">Particular health issue (Instant)</option>
+			</select>
+			<br>
+			</div>
+			<!-- Form End -->
+		    <span class="space10"></span>
+		    <br>
+		    <table class="w-100">
+		    	<tr>
+		    		<td><a class="btn btn-lg w-25 btnBorder float-left" onclick="moveNext(-1)">Previous</a></td>
+		    		<td><a class="btn btn-lg w-25 btnBorder float-right" onclick="moveNext(1)">Next</a></td>
+		    	</tr>
+		    </table>
+		</div>
+  	</div>
+  </div>
+</div>
+
+</body>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script type="text/javascript">
+	let count = 0;
+	function moveNext(j){
+		let cards = document.getElementsByClassName('card')
+		console.log([(count+j),cards.length, (count+j)])
+		if((count+j) < 0 || cards.length <= (count+j)){return 1;}
+		cards[count].classList.toggle('hiddenSet')
+		setTimeout(function(){
+			cards[count].style.display = 'none'
+			cards[count+(1*j)].style.display = 'block'
+		},620)
+		setTimeout(function(){
+			cards[count+(1*j)].classList.toggle('hiddenSet')
+			count += j;
+		},640)
+	}
+</script>
+</html>
