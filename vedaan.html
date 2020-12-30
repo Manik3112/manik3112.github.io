@@ -4,6 +4,25 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Wizard</title>
+  <script type="text/javascript">
+  	const constObj = {
+  		"sex" : {
+  			"1" : "male",
+  			"2" : "female"
+  		},
+  		"bodyType" : {
+  			"1" : "verySkinny",
+			"2" : "Thin",
+			"3" : "Fit",
+			"4" : "Obese",
+			"5" : "veryObese"
+  		},
+  		"checkType" : {
+  			"1" : "fullBody",
+  			"2" : "Instant"
+  		}
+  	}
+  </script>
   <style type="text/css">
   	@font-face {
 	    font-family: Nexa;
@@ -19,8 +38,17 @@
 	.font14{
 		font-size: 24px;
 	}
+	.font12{
+		font-size: 20px;
+	}
 	.colorGrey{
 		color: rgba(0,0,0,0.4);
+	}
+	.trans3{
+		transition: 1s;
+	}
+	.errorMessage{
+		color: rgba(255,0,0,1)
 	}
 	.form-control,select{
 		border-top: none !important;
@@ -30,6 +58,8 @@
 		margin-top: -1em;
 	}
 	.set{
+		margin-top:5em;
+		margin-bottom:5em;
 		transition: 1s;
 	}
 	.hiddenSet{
@@ -37,6 +67,25 @@
 	}
 	.btnBorder{
 		border: solid 1px rgba(0,0,0,0.1) !important;
+	}
+	.checkLabel{
+		cursor: pointer;
+		margin-left: 0.5em;
+	}
+	.labelTick{
+		display: none
+	}
+	.form-check-input:checked + .checkLabel{
+		color: rgb(10,128,55);
+		font-weight: bold;
+	}
+	.form-check-input:checked + .checkLabel > .labelTick{
+		display: inline;
+		font-weight: bold;
+	}
+	.padBorder{
+		border: solid 1px rgba(0,0,0,0.3) !important;
+		padding: 1em;
 	}
   </style>
   <!-- CSS only -->
@@ -46,19 +95,19 @@
 
 <div class="container">
   <div class="row">
-  	<div class="d-flex align-items-center justify-content-center w-100" style="height: 100vh;">
+  	<div class="d-flex align-items-center justify-content-center w-100" style="min-height: 100vh;">
   		<div class="set card w-100" style="padding: 3em;">
 		  <div class="card-body">
-		    <h2 class="card-title">Vedaan</h2>
+		  	<span class="float-right errorMessage trans3 hiddenSet">Please Fill all Fields</span>
+		    <h2 class="card-title trans3">Vedaan</h2>
 		    <hr>
 		    <span class="space10"></span>
-		    <!-- Form Start -->
 		    <label class="font14 colorGrey">Name</label><br>
 		    <input type="text" class="form-control" id="name">
 			<br>
 		    <label class="font14 colorGrey">Sex</label><br>
 		    <select class="custom-select" id="sex">
-			  <option selected>Select Gender</option>
+			  <option selected value="">Select Gender</option>
 			  <option value="1">Male</option>
 			  <option value="2">Female</option>
 			</select>
@@ -66,7 +115,7 @@
 			<br>
 		    <label class="font14 colorGrey">Body Type</label><br>
 		    <select class="custom-select" id="bodyType">
-			  <option selected>Select Body Type</option>
+			  <option selected value="">Select Body Type</option>
 			  <option value="1">Very Skinny</option>
 			  <option value="2">Thin</option>
 			  <option value="3">Fit</option>
@@ -75,7 +124,6 @@
 			</select>
 			<br>
 			</div>
-			<!-- Form End -->
 		    <span class="space10"></span>
 		    <br>		    
 		    <table class="w-100">
@@ -87,20 +135,19 @@
 		</div>
 		<div class="set hiddenSet card w-100" style="padding: 3em;display: none;">
 		  <div class="card-body">
-		    <h2 class="card-title">Vedaan</h2>
+		  	<span class="float-right errorMessage trans3 hiddenSet">Please Fill all Fields</span>
+		    <h2 class="card-title trans3">Vedaan</h2>
 		    <hr>
 		    <span class="space10"></span>
-		    <!-- Form Start -->
 			<br>
 		    <label class="font14 colorGrey">Body Check-Up type</label><br>
-		    <select class="custom-select" id="bodyType">
-			  <option selected>Select Check-Up Type</option>
+		    <select class="custom-select" id="checkType">
+			  <option selected value="">Select Check-Up Type</option>
 			  <option value="1">Full Body Checkup(3-5 min)</option>
 			  <option value="2">Particular health issue (Instant)</option>
 			</select>
 			<br>
 			</div>
-			<!-- Form End -->
 		    <span class="space10"></span>
 		    <br>
 		    <table class="w-100">
@@ -110,16 +157,678 @@
 		    	</tr>
 		    </table>
 		</div>
+
+		<div class="set hiddenSet card w-100" style="padding: 3em;display: none;">
+		  <div class="card-body">
+		  	<span class="float-right errorMessage trans3 hiddenSet">Please Fill all Fields</span>
+		    <h2 class="card-title trans3">Vedaan</h2>
+		    <hr>
+		    <span class="space10"></span>
+			<br>
+		    <label class="font14 colorGrey">Major Areas of Illness</label><br>
+		    <tr><td><input type="checkbox" id="majorIllness1" class="form-check-input hiddenSet" value="1">
+		    <label for="majorIllness1" class="checkLabel font12 padBorder">Heart/Cardiac Problem / Hypertension <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="majorIllness2" class="form-check-input hiddenSet" value="2">
+		    <label for="majorIllness2" class="checkLabel font12 padBorder">Respiratory Problem / ENT / Fever/Cold <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="majorIllness3" class="form-check-input hiddenSet" value="3">
+		    <label for="majorIllness3" class="checkLabel font12 padBorder">Thyroid Problem / Hormonal Problem <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="majorIllness4" class="form-check-input hiddenSet" value="4">
+		    <label for="majorIllness4" class="checkLabel font12 padBorder">Upper Gastrointestinal / Liver, Gall Bladder, Stomach / Digestion / Lower Gastrointestinal / Intestine <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="majorIllness5" class="form-check-input hiddenSet" value="5">
+		    <label for="majorIllness5" class="checkLabel font12 padBorder">Kidney/Renal/Prostate <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="majorIllness6" class="form-check-input hiddenSet" value="6">
+		    <label for="majorIllness6" class="checkLabel font12 padBorder">Weakness/Old Age <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="majorIllness7" class="form-check-input hiddenSet" value="7">
+		    <label for="majorIllness7" class="checkLabel font12 padBorder">Oral care <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="majorIllness8" class="form-check-input hiddenSet" value="8">
+		    <label for="majorIllness8" class="checkLabel font12 padBorder">Skin Care <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="majorIllness9" class="form-check-input hiddenSet" value="9">
+		    <label for="majorIllness9" class="checkLabel font12 padBorder">Hair care <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="majorIllness10" class="form-check-input hiddenSet" value="10">
+		    <label for="majorIllness10" class="checkLabel font12 padBorder">Weight Gain/Loose Fat <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="majorIllness11" class="form-check-input hiddenSet" value="11">
+		    <label for="majorIllness11" class="checkLabel font12 padBorder">Sexual care <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="majorIllness12" class="form-check-input hiddenSet" value="12">
+		    <label for="majorIllness12" class="checkLabel font12 padBorder">Eye care <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="majorIllness13" class="form-check-input hiddenSet" value="13">
+		    <label for="majorIllness13" class="checkLabel font12 padBorder">Body/Joint pain / Muscle Pain <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="majorIllness14" class="form-check-input hiddenSet" value="14">
+		    <label for="majorIllness14" class="checkLabel font12 padBorder">Head & Brain Problems / Psycological care <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="majorIllness15" class="form-check-input hiddenSet" value="15">
+		    <label for="majorIllness15" class="checkLabel font12 padBorder">Unknown <label class="labelTick">&check;</label></label></td></tr>
+		    
+			<br>
+			</div>
+		    <span class="space10"></span>
+		    <br>
+		    <table class="w-100">
+		    	<tr>
+		    		<td><a class="btn btn-lg btnBorder float-left" onclick="moveNext(-1)">Previous</a></td>
+		    		<td><a class="btn btn-lg btnBorder float-right" onclick="checkMinorMoveNext()">Next</a></td>
+		    	</tr>
+		    </table>
+		</div>
+
+		<div class="set hiddenSet card w-100" id="minorIllness1" style="padding: 3em;display: none;">
+		  <div class="card-body">
+		  	<span class="float-right errorMessage trans3 hiddenSet">Please Fill all Fields</span>
+		    <h2 class="card-title trans3">Vedaan</h2>
+		    <hr>
+		    <span class="space10"></span>
+			<br>
+
+		    <label class="font14 colorGrey">Heart/Cardiac Problem / Hypertension</label><br>
+
+		    <tr><td><input type="checkbox" id="minorIllness1_1" class="form-check-input hiddenSet" value="1">
+		    <label for="minorIllness1_1" class="checkLabel font12 padBorder">Abnormal Heart Rythm / Improper Heart Beat <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness1_2" class="form-check-input hiddenSet" value="2">
+		    <label for="minorIllness1_2" class="checkLabel font12 padBorder">Heart Disease <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness1_3" class="form-check-input hiddenSet" value="3">
+		    <label for="minorIllness1_3" class="checkLabel font12 padBorder">High Cholestrol level/Increase Fat/Increase Lipids <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness1_4" class="form-check-input hiddenSet" value="4">
+		    <label for="minorIllness1_4" class="checkLabel font12 padBorder">Palpitation(Increase Heart Beats) <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness1_5" class="form-check-input hiddenSet" value="5">
+		    <label for="minorIllness1_5" class="checkLabel font12 padBorder">Increase in Faintness <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness1_6" class="form-check-input hiddenSet" value="6">
+		    <label for="minorIllness1_6" class="checkLabel font12 padBorder">Anaemia(lack of blood) <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness1_7" class="form-check-input hiddenSet" value="7">
+		    <label for="minorIllness1_7" class="checkLabel font12 padBorder">Congestive Heart Failure <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness1_8" class="form-check-input hiddenSet" value="8">
+		    <label for="minorIllness1_8" class="checkLabel font12 padBorder">Hypotension/Low blood pressure <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness1_9" class="form-check-input hiddenSet" value="9">
+		    <label for="minorIllness1_9" class="checkLabel font12 padBorder">Hypertension/high blood pressure <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness1_10" class="form-check-input hiddenSet" value="10">
+		    <label for="minorIllness1_10" class="checkLabel font12 padBorder">Post Heart attach care <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness1_11" class="form-check-input hiddenSet" value="11">
+		    <label for="minorIllness1_11" class="checkLabel font12 padBorder">Post Heart attach care <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness1_12" class="form-check-input hiddenSet" value="12">
+		    <label for="minorIllness1_12" class="checkLabel font12 padBorder">Chest Pain/Hear Pain <label class="labelTick">&check;</label></label></td></tr>
+		    
+			<br>
+			</div>
+		    <span class="space10"></span>
+		    <br>
+		    <table class="w-100">
+		    	<tr>
+		    		<td><a class="btn btn-lg btnBorder float-left" onclick="checkMinorMovePrev(2)">Previous</a></td>
+		    		<td><a class="btn btn-lg btnBorder float-right" onclick="checkMinorMoveNext()">Next</a></td>
+		    	</tr>
+		    </table>
+		</div>
+
+		<div class="set hiddenSet card w-100" id="minorIllness2" style="padding: 3em;display: none;">
+		  <div class="card-body">
+		  	<span class="float-right errorMessage trans3 hiddenSet">Please Fill all Fields</span>
+		    <h2 class="card-title trans3">Vedaan</h2>
+		    <hr>
+		    <span class="space10"></span>
+			<br>
+
+		    <label class="font14 colorGrey">Respiratory Problem / ENT / Fever / Cold</label><br>
+
+		    <tr><td><input type="checkbox" id="minorIllness2_1" class="form-check-input hiddenSet" value="1">
+		    <label for="minorIllness2_1" class="checkLabel font12 padBorder">Allergic Asthma <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness2_2" class="form-check-input hiddenSet" value="2">
+		    <label for="minorIllness2_2" class="checkLabel font12 padBorder">Breathlessness <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness2_3" class="form-check-input hiddenSet" value="3">
+		    <label for="minorIllness2_3" class="checkLabel font12 padBorder">Cough <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness2_4" class="form-check-input hiddenSet" value="4">
+		    <label for="minorIllness2_4" class="checkLabel font12 padBorder">Smokers;COPD(Chronic obstructive pulmonary disease) <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness2_5" class="form-check-input hiddenSet" value="5">
+		    <label for="minorIllness2_5" class="checkLabel font12 padBorder">Hearing loss <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness2_6" class="form-check-input hiddenSet" value="6">
+		    <label for="minorIllness2_6" class="checkLabel font12 padBorder">Throat Pain <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness2_7" class="form-check-input hiddenSet" value="7">
+		    <label for="minorIllness2_7" class="checkLabel font12 padBorder">Ear Pain <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness2_8" class="form-check-input hiddenSet" value="8">
+		    <label for="minorIllness2_8" class="checkLabel font12 padBorder">Sinusitis <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness2_9" class="form-check-input hiddenSet" value="9">
+		    <label for="minorIllness2_9" class="checkLabel font12 padBorder">Blocked nose <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness2_10" class="form-check-input hiddenSet" value="10">
+		    <label for="minorIllness2_10" class="checkLabel font12 padBorder">Sore throat <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness2_11" class="form-check-input hiddenSet" value="11">
+		    <label for="minorIllness2_11" class="checkLabel font12 padBorder">Allergic Rhinitis (Regular Sneezing>10 days) <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness2_12" class="form-check-input hiddenSet" value="12">
+		    <label for="minorIllness2_12" class="checkLabel font12 padBorder">Blood in Cough <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness2_13" class="form-check-input hiddenSet" value="13">
+		    <label for="minorIllness2_13" class="checkLabel font12 padBorder">Dengue fever <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness2_14" class="form-check-input hiddenSet" value="14">
+		    <label for="minorIllness2_14" class="checkLabel font12 padBorder">Flu <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness2_15" class="form-check-input hiddenSet" value="15">
+		    <label for="minorIllness2_15" class="checkLabel font12 padBorder">Chikungunya fever <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness2_16" class="form-check-input hiddenSet" value="16">
+		    <label for="minorIllness2_16" class="checkLabel font12 padBorder">Common Cold <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness2_17" class="form-check-input hiddenSet" value="17">
+		    <label for="minorIllness2_17" class="checkLabel font12 padBorder">Pneumonia <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness2_18" class="form-check-input hiddenSet" value="18">
+		    <label for="minorIllness2_18" class="checkLabel font12 padBorder">Malaria <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness2_19" class="form-check-input hiddenSet" value="19">
+		    <label for="minorIllness2_19" class="checkLabel font12 padBorder">typhoid <label class="labelTick">&check;</label></label></td></tr>
+		    
+			<br>
+			</div>
+		    <span class="space10"></span>
+		    <br>
+		    <table class="w-100">
+		    	<tr>
+		    		<td><a class="btn btn-lg btnBorder float-left" onclick="checkMinorMovePrev(2)">Previous</a></td>
+		    		<td><a class="btn btn-lg btnBorder float-right" onclick="checkMinorMoveNext()">Next</a></td>
+		    	</tr>
+		    </table>
+		</div>
+
+		<div class="set hiddenSet card w-100" id="minorIllness3" style="padding: 3em;display: none;">
+		  <div class="card-body">
+		  	<span class="float-right errorMessage trans3 hiddenSet">Please Fill all Fields</span>
+		    <h2 class="card-title trans3">Vedaan</h2>
+		    <hr>
+		    <span class="space10"></span>
+			<br>
+
+		    <label class="font14 colorGrey">Thyroid Problem / Hormonal Problem</label><br>
+
+		    <tr><td><input type="checkbox" id="minorIllness3_1" class="form-check-input hiddenSet" value="1">
+		    <label for="minorIllness3_1" class="checkLabel font12 padBorder">Hypothyrodism <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness3_2" class="form-check-input hiddenSet" value="2">
+		    <label for="minorIllness3_2" class="checkLabel font12 padBorder">Frequent Mood Swings <label class="labelTick">&check;</label></label></td></tr>
+		    
+			<br>
+			</div>
+		    <span class="space10"></span>
+		    <br>
+		    <table class="w-100">
+		    	<tr>
+		    		<td><a class="btn btn-lg btnBorder float-left" onclick="checkMinorMovePrev(2)">Previous</a></td>
+		    		<td><a class="btn btn-lg btnBorder float-right" onclick="checkMinorMoveNext()">Next</a></td>
+		    	</tr>
+		    </table>
+		</div>
+
+		<div class="set hiddenSet card w-100" id="minorIllness4" style="padding: 3em;display: none;">
+		  <div class="card-body">
+		  	<span class="float-right errorMessage trans3 hiddenSet">Please Fill all Fields</span>
+		    <h2 class="card-title trans3">Vedaan</h2>
+		    <hr>
+		    <span class="space10"></span>
+			<br>
+
+		    <label class="font14 colorGrey">Upper Gastrointestinal / Liver, Gall Bladder, Stomach / Digestion / Lower Gastrointestinal / Intestine</label><br>
+
+		    <tr><td><input type="checkbox" id="minorIllness4_1" class="form-check-input hiddenSet" value="1">
+		    <label for="minorIllness4_1" class="checkLabel font12 padBorder">Fatty Liver <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness4_2" class="form-check-input hiddenSet" value="2">
+		    <label for="minorIllness4_2" class="checkLabel font12 padBorder">Loss of Apetite/ Low Apetite <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness4_3" class="form-check-input hiddenSet" value="3">
+		    <label for="minorIllness4_3" class="checkLabel font12 padBorder">Acid reflux in throat & mouth/Heartburn/Hiatus Hernia <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness4_4" class="form-check-input hiddenSet" value="4">
+		    <label for="minorIllness4_4" class="checkLabel font12 padBorder">Gas, Bloating, Flatulence <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness4_5" class="form-check-input hiddenSet" value="5">
+		    <label for="minorIllness4_5" class="checkLabel font12 padBorder">Nausea <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness4_6" class="form-check-input hiddenSet" value="6">
+		    <label for="minorIllness4_6" class="checkLabel font12 padBorder">Indigestion <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness4_7" class="form-check-input hiddenSet" value="7">
+		    <label for="minorIllness4_7" class="checkLabel font12 padBorder">Gall Stone <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness4_8" class="form-check-input hiddenSet" value="8">
+		    <label for="minorIllness4_8" class="checkLabel font12 padBorder">Jaundice <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness4_9" class="form-check-input hiddenSet" value="9">
+		    <label for="minorIllness4_9" class="checkLabel font12 padBorder">Acidity <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness4_10" class="form-check-input hiddenSet" value="10">
+		    <label for="minorIllness4_10" class="checkLabel font12 padBorder">Food Poisoning <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness4_11" class="form-check-input hiddenSet" value="11">
+		    <label for="minorIllness4_11" class="checkLabel font12 padBorder">Chronic Gastric <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness4_12" class="form-check-input hiddenSet" value="12">
+		    <label for="minorIllness4_12" class="checkLabel font12 padBorder">Indigestion <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness4_13" class="form-check-input hiddenSet" value="13">
+		    <label for="minorIllness4_13" class="checkLabel font12 padBorder">Stomach Pain(Mild-Severe) <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness4_14" class="form-check-input hiddenSet" value="14">
+		    <label for="minorIllness4_14" class="checkLabel font12 padBorder">Stomach pain (cramp/dull) <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness4_15" class="form-check-input hiddenSet" value="15">
+		    <label for="minorIllness4_15" class="checkLabel font12 padBorder">Constipation(Mild-Severe) <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness4_16" class="form-check-input hiddenSet" value="16">
+		    <label for="minorIllness4_16" class="checkLabel font12 padBorder">Blood in stools/mucus in stools <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness4_17" class="form-check-input hiddenSet" value="17">
+		    <label for="minorIllness4_17" class="checkLabel font12 padBorder">Black Stools <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness4_18" class="form-check-input hiddenSet" value="18">
+		    <label for="minorIllness4_18" class="checkLabel font12 padBorder">Diarrhea/Loose Motion <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness4_19" class="form-check-input hiddenSet" value="19">
+		    <label for="minorIllness4_19" class="checkLabel font12 padBorder">Bloody Diarrhea <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness4_20" class="form-check-input hiddenSet" value="20">
+		    <label for="minorIllness4_20" class="checkLabel font12 padBorder">Frequent Stools(>3days) <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness4_21" class="form-check-input hiddenSet" value="21">
+		    <label for="minorIllness4_21" class="checkLabel font12 padBorder">Piles/Fissure/Fistula <label class="labelTick">&check;</label></label></td></tr>
+		    
+			<br>
+			</div>
+		    <span class="space10"></span>
+		    <br>
+		    <table class="w-100">
+		    	<tr>
+		    		<td><a class="btn btn-lg btnBorder float-left" onclick="checkMinorMovePrev(2)">Previous</a></td>
+		    		<td><a class="btn btn-lg btnBorder float-right" onclick="checkMinorMoveNext()">Next</a></td>
+		    	</tr>
+		    </table>
+		</div>
+
+		<div class="set hiddenSet card w-100" id="minorIllness5" style="padding: 3em;display: none;">
+		  <div class="card-body">
+		  	<span class="float-right errorMessage trans3 hiddenSet">Please Fill all Fields</span>
+		    <h2 class="card-title trans3">Vedaan</h2>
+		    <hr>
+		    <span class="space10"></span>
+			<br>
+
+		    <label class="font14 colorGrey">Kidney/Renal/Prostate</label><br>
+
+		    <tr><td><input type="checkbox" id="minorIllness5_1" class="form-check-input hiddenSet" value="1">
+		    <label for="minorIllness5_1" class="checkLabel font12 padBorder">Chronic Kidney Disease <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness5_2" class="form-check-input hiddenSet" value="2">
+		    <label for="minorIllness5_2" class="checkLabel font12 padBorder">Kidney Failure <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness5_3" class="form-check-input hiddenSet" value="3">
+		    <label for="minorIllness5_3" class="checkLabel font12 padBorder">Swelling on body/oedema <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness5_4" class="form-check-input hiddenSet" value="4">
+		    <label for="minorIllness5_4" class="checkLabel font12 padBorder">Blood in Urine <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness5_5" class="form-check-input hiddenSet" value="5">
+		    <label for="minorIllness5_5" class="checkLabel font12 padBorder">Burning Urine <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness5_6" class="form-check-input hiddenSet" value="6">
+		    <label for="minorIllness5_6" class="checkLabel font12 padBorder">Kidney Stones <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness5_7" class="form-check-input hiddenSet" value="7">
+		    <label for="minorIllness5_7" class="checkLabel font12 padBorder">Urine Retention in Bladder <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness5_8" class="form-check-input hiddenSet" value="8">
+		    <label for="minorIllness5_8" class="checkLabel font12 padBorder">Nocturia( Night Urine) <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness5_9" class="form-check-input hiddenSet" value="9">
+		    <label for="minorIllness5_9" class="checkLabel font12 padBorder">Improper Emptying of bladder <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness5_10" class="form-check-input hiddenSet" value="10">
+		    <label for="minorIllness5_10" class="checkLabel font12 padBorder">Bedwetting <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness5_11" class="form-check-input hiddenSet" value="11">
+		    <label for="minorIllness5_11" class="checkLabel font12 padBorder">Urethritis <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness5_12" class="form-check-input hiddenSet" value="12">
+		    <label for="minorIllness5_12" class="checkLabel font12 padBorder">UTI <label class="labelTick">&check;</label></label></td></tr>
+		    
+			<br>
+			</div>
+		    <span class="space10"></span>
+		    <br>
+		    <table class="w-100">
+		    	<tr>
+		    		<td><a class="btn btn-lg btnBorder float-left" onclick="checkMinorMovePrev(2)">Previous</a></td>
+		    		<td><a class="btn btn-lg btnBorder float-right" onclick="checkMinorMoveNext()">Next</a></td>
+		    	</tr>
+		    </table>
+		</div>
+
+		<div class="set hiddenSet card w-100" id="minorIllness6" style="padding: 3em;display: none;">
+		  <div class="card-body">
+		  	<span class="float-right errorMessage trans3 hiddenSet">Please Fill all Fields</span>
+		    <h2 class="card-title trans3">Vedaan</h2>
+		    <hr>
+		    <span class="space10"></span>
+			<br>
+
+		    <label class="font14 colorGrey">Weakness/Old Age</label><br>
+
+		    <tr><td><input type="checkbox" id="minorIllness6_1" class="form-check-input hiddenSet" value="1">
+		    <label for="minorIllness6_1" class="checkLabel font12 padBorder">Stamina/De-energized body <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness6_2" class="form-check-input hiddenSet" value="2">
+		    <label for="minorIllness6_2" class="checkLabel font12 padBorder">Dizziness <label class="labelTick">&check;</label></label></td></tr>
+		    
+			<br>
+			</div>
+		    <span class="space10"></span>
+		    <br>
+		    <table class="w-100">
+		    	<tr>
+		    		<td><a class="btn btn-lg btnBorder float-left" onclick="checkMinorMovePrev(2)">Previous</a></td>
+		    		<td><a class="btn btn-lg btnBorder float-right" onclick="checkMinorMoveNext()">Next</a></td>
+		    	</tr>
+		    </table>
+		</div>
+
+		<div class="set hiddenSet card w-100" id="minorIllness7" style="padding: 3em;display: none;">
+		  <div class="card-body">
+		  	<span class="float-right errorMessage trans3 hiddenSet">Please Fill all Fields</span>
+		    <h2 class="card-title trans3">Vedaan</h2>
+		    <hr>
+		    <span class="space10"></span>
+			<br>
+
+		    <label class="font14 colorGrey">Oral care</label><br>
+
+		    <tr><td><input type="checkbox" id="minorIllness7_1" class="form-check-input hiddenSet" value="1">
+		    <label for="minorIllness7_1" class="checkLabel font12 padBorder">Gum Bleeding <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness7_2" class="form-check-input hiddenSet" value="2">
+		    <label for="minorIllness7_2" class="checkLabel font12 padBorder">Yellowish teeth <label class="labelTick">&check;</label></label></td></tr>
+		    
+			<br>
+			</div>
+		    <span class="space10"></span>
+		    <br>
+		    <table class="w-100">
+		    	<tr>
+		    		<td><a class="btn btn-lg btnBorder float-left" onclick="checkMinorMovePrev(2)">Previous</a></td>
+		    		<td><a class="btn btn-lg btnBorder float-right" onclick="checkMinorMoveNext()">Next</a></td>
+		    	</tr>
+		    </table>
+		</div>
+
+		<div class="set hiddenSet card w-100" id="minorIllness8" style="padding: 3em;display: none;">
+		  <div class="card-body">
+		  	<span class="float-right errorMessage trans3 hiddenSet">Please Fill all Fields</span>
+		    <h2 class="card-title trans3">Vedaan</h2>
+		    <hr>
+		    <span class="space10"></span>
+			<br>
+
+		    <label class="font14 colorGrey">Skin Care</label><br>
+
+		    <tr><td><input type="checkbox" id="minorIllness8_1" class="form-check-input hiddenSet" value="1">
+		    <label for="minorIllness8_1" class="checkLabel font12 padBorder">Acne <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness8_2" class="form-check-input hiddenSet" value="2">
+		    <label for="minorIllness8_2" class="checkLabel font12 padBorder">Fungal infection <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness8_3" class="form-check-input hiddenSet" value="3">
+		    <label for="minorIllness8_3" class="checkLabel font12 padBorder">Allergy <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness8_4" class="form-check-input hiddenSet" value="4">
+		    <label for="minorIllness8_4" class="checkLabel font12 padBorder">Eczema <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness8_5" class="form-check-input hiddenSet" value="5">
+		    <label for="minorIllness8_5" class="checkLabel font12 padBorder">Dark Spots/Dark Circles/For Fairness <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness8_6" class="form-check-input hiddenSet" value="6">
+		    <label for="minorIllness8_6" class="checkLabel font12 padBorder">Dull Skin <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness8_7" class="form-check-input hiddenSet" value="7">
+		    <label for="minorIllness8_7" class="checkLabel font12 padBorder">Dehydrated/Dry Skin <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness8_8" class="form-check-input hiddenSet" value="8">
+		    <label for="minorIllness8_8" class="checkLabel font12 padBorder">Pssoriasis <label class="labelTick">&check;</label></label></td></tr>
+		    
+			<br>
+			</div>
+		    <span class="space10"></span>
+		    <br>
+		    <table class="w-100">
+		    	<tr>
+		    		<td><a class="btn btn-lg btnBorder float-left" onclick="checkMinorMovePrev(2)">Previous</a></td>
+		    		<td><a class="btn btn-lg btnBorder float-right" onclick="checkMinorMoveNext()">Next</a></td>
+		    	</tr>
+		    </table>
+		</div>
+
+				<div class="set hiddenSet card w-100" id="minorIllness9" style="padding: 3em;display: none;">
+		  <div class="card-body">
+		  	<span class="float-right errorMessage trans3 hiddenSet">Please Fill all Fields</span>
+		    <h2 class="card-title trans3">Vedaan</h2>
+		    <hr>
+		    <span class="space10"></span>
+			<br>
+
+		    <label class="font14 colorGrey">Hair Care</label><br>
+
+		    <tr><td><input type="checkbox" id="minorIllness9_1" class="form-check-input hiddenSet" value="1">
+		    <label for="minorIllness9_1" class="checkLabel font12 padBorder">Baldness/Hair loss <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness9_2" class="form-check-input hiddenSet" value="2">
+		    <label for="minorIllness9_2" class="checkLabel font12 padBorder">Dry Hair <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness9_3" class="form-check-input hiddenSet" value="3">
+		    <label for="minorIllness9_3" class="checkLabel font12 padBorder">Oily Scalp <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness9_4" class="form-check-input hiddenSet" value="4">
+		    <label for="minorIllness9_4" class="checkLabel font12 padBorder">Hair Skin Infection/ Big Dandruff <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness9_5" class="form-check-input hiddenSet" value="5">
+		    <label for="minorIllness9_5" class="checkLabel font12 padBorder">Dandruff <label class="labelTick">&check;</label></label></td></tr>
+		    
+			<br>
+			</div>
+		    <span class="space10"></span>
+		    <br>
+		    <table class="w-100">
+		    	<tr>
+		    		<td><a class="btn btn-lg btnBorder float-left" onclick="checkMinorMovePrev(2)">Previous</a></td>
+		    		<td><a class="btn btn-lg btnBorder float-right" onclick="checkMinorMoveNext()">Next</a></td>
+		    	</tr>
+		    </table>
+		</div>
+
+		<div class="set hiddenSet card w-100" id="minorIllness10" style="padding: 3em;display: none;">
+		  <div class="card-body">
+		  	<span class="float-right errorMessage trans3 hiddenSet">Please Fill all Fields</span>
+		    <h2 class="card-title trans3">Vedaan</h2>
+		    <hr>
+		    <span class="space10"></span>
+			<br>
+
+		    <label class="font14 colorGrey">Weight Gain/Loose Fat</label><br>
+
+		    <tr><td><input type="checkbox" id="minorIllness10_1" class="form-check-input hiddenSet" value="1">
+		    <label for="minorIllness10_1" class="checkLabel font12 padBorder">Underweight <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness10_2" class="form-check-input hiddenSet" value="2">
+		    <label for="minorIllness10_2" class="checkLabel font12 padBorder">Obesity/Weight loss <label class="labelTick">&check;</label></label></td></tr>
+		    
+			<br>
+			</div>
+		    <span class="space10"></span>
+		    <br>
+		    <table class="w-100">
+		    	<tr>
+		    		<td><a class="btn btn-lg btnBorder float-left" onclick="checkMinorMovePrev(2)">Previous</a></td>
+		    		<td><a class="btn btn-lg btnBorder float-right" onclick="checkMinorMoveNext()">Next</a></td>
+		    	</tr>
+		    </table>
+		</div>
+
+		<div class="set hiddenSet card w-100" id="minorIllness11" style="padding: 3em;display: none;">
+		  <div class="card-body">
+		  	<span class="float-right errorMessage trans3 hiddenSet">Please Fill all Fields</span>
+		    <h2 class="card-title trans3">Vedaan</h2>
+		    <hr>
+		    <span class="space10"></span>
+			<br>
+
+		    <label class="font14 colorGrey">Sexual care</label><br>
+
+		    <tr><td><input type="checkbox" id="minorIllness11_1" class="form-check-input hiddenSet" value="1">
+		    <label for="minorIllness11_1" class="checkLabel font12 padBorder">Erectile Dysfunction <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness11_2" class="form-check-input hiddenSet" value="2">
+		    <label for="minorIllness11_2" class="checkLabel font12 padBorder">Female Infertility <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness11_3" class="form-check-input hiddenSet" value="3">
+		    <label for="minorIllness11_3" class="checkLabel font12 padBorder">Genital Herpes <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness11_4" class="form-check-input hiddenSet" value="4">
+		    <label for="minorIllness11_4" class="checkLabel font12 padBorder">UTI <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness11_5" class="form-check-input hiddenSet" value="5">
+		    <label for="minorIllness11_5" class="checkLabel font12 padBorder">Infertility <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness11_6" class="form-check-input hiddenSet" value="6">
+		    <label for="minorIllness11_6" class="checkLabel font12 padBorder">Low Spem Count <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness11_7" class="form-check-input hiddenSet" value="7">
+		    <label for="minorIllness11_7" class="checkLabel font12 padBorder">Menopause <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness11_8" class="form-check-input hiddenSet" value="8">
+		    <label for="minorIllness11_8" class="checkLabel font12 padBorder">Menorrhagia(Heavy Menstrual Bleeding) <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness11_9" class="form-check-input hiddenSet" value="9">
+		    <label for="minorIllness11_9" class="checkLabel font12 padBorder">Pelvic inflammatory disease (PID) <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness11_10" class="form-check-input hiddenSet" value="10">
+		    <label for="minorIllness11_10" class="checkLabel font12 padBorder">Premenstrual Syndrome <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness11_11" class="form-check-input hiddenSet" value="11">
+		    <label for="minorIllness11_11" class="checkLabel font12 padBorder">Premature Ejaculation <label class="labelTick">&check;</label></label></td></tr>
+		    
+			<br>
+			</div>
+		    <span class="space10"></span>
+		    <br>
+		    <table class="w-100">
+		    	<tr>
+		    		<td><a class="btn btn-lg btnBorder float-left" onclick="checkMinorMovePrev(2)">Previous</a></td>
+		    		<td><a class="btn btn-lg btnBorder float-right" onclick="checkMinorMoveNext()">Next</a></td>
+		    	</tr>
+		    </table>
+		</div>
+
+		<div class="set hiddenSet card w-100" id="minorIllness12" style="padding: 3em;display: none;">
+		  <div class="card-body">
+		  	<span class="float-right errorMessage trans3 hiddenSet">Please Fill all Fields</span>
+		    <h2 class="card-title trans3">Vedaan</h2>
+		    <hr>
+		    <span class="space10"></span>
+			<br>
+
+		    <label class="font14 colorGrey">Eye care</label><br>
+
+		    <tr><td><input type="checkbox" id="minorIllness12_1" class="form-check-input hiddenSet" value="1">
+		    <label for="minorIllness12_1" class="checkLabel font12 padBorder">Conjunctivitis <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness12_2" class="form-check-input hiddenSet" value="2">
+		    <label for="minorIllness12_2" class="checkLabel font12 padBorder">Myopia <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness12_3" class="form-check-input hiddenSet" value="3">
+		    <label for="minorIllness12_3" class="checkLabel font12 padBorder">Continous increase in eye sight <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness12_4" class="form-check-input hiddenSet" value="4">
+		    <label for="minorIllness12_4" class="checkLabel font12 padBorder">Watery eyes <label class="labelTick">&check;</label></label></td></tr>
+		    
+			<br>
+			</div>
+		    <span class="space10"></span>
+		    <br>
+		    <table class="w-100">
+		    	<tr>
+		    		<td><a class="btn btn-lg btnBorder float-left" onclick="checkMinorMovePrev(2)">Previous</a></td>
+		    		<td><a class="btn btn-lg btnBorder float-right" onclick="checkMinorMoveNext()">Next</a></td>
+		    	</tr>
+		    </table>
+		</div>
+
+		<div class="set hiddenSet card w-100" id="minorIllness13" style="padding: 3em;display: none;">
+		  <div class="card-body">
+		  	<span class="float-right errorMessage trans3 hiddenSet">Please Fill all Fields</span>
+		    <h2 class="card-title trans3">Vedaan</h2>
+		    <hr>
+		    <span class="space10"></span>
+			<br>
+
+		    <label class="font14 colorGrey">Body/Joint pain / Muscle Pain</label><br>
+
+		    <tr><td><input type="checkbox" id="minorIllness13_1" class="form-check-input hiddenSet" value="1">
+		    <label for="minorIllness13_1" class="checkLabel font12 padBorder">Back Pain <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness13_2" class="form-check-input hiddenSet" value="2">
+		    <label for="minorIllness13_2" class="checkLabel font12 padBorder">Arthritis <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness13_3" class="form-check-input hiddenSet" value="3">
+		    <label for="minorIllness13_3" class="checkLabel font12 padBorder">Frozen Shoulder <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness13_4" class="form-check-input hiddenSet" value="4">
+		    <label for="minorIllness13_4" class="checkLabel font12 padBorder">Cervical Spondylitis-Pain in neck and head <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness13_5" class="form-check-input hiddenSet" value="5">
+		    <label for="minorIllness13_5" class="checkLabel font12 padBorder">Joint Pain <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness13_6" class="form-check-input hiddenSet" value="6">
+		    <label for="minorIllness13_6" class="checkLabel font12 padBorder">Slipped Disc <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness13_7" class="form-check-input hiddenSet" value="7">
+		    <label for="minorIllness13_7" class="checkLabel font12 padBorder">Bulged Disc <label class="labelTick">&check;</label></label></td></tr>
+		    
+			<br>
+			</div>
+		    <span class="space10"></span>
+		    <br>
+		    <table class="w-100">
+		    	<tr>
+		    		<td><a class="btn btn-lg btnBorder float-left" onclick="checkMinorMovePrev(2)">Previous</a></td>
+		    		<td><a class="btn btn-lg btnBorder float-right" onclick="checkMinorMoveNext()">Next</a></td>
+		    	</tr>
+		    </table>
+		</div>
+
+				<div class="set hiddenSet card w-100" id="minorIllness14" style="padding: 3em;display: none;">
+		  <div class="card-body">
+		  	<span class="float-right errorMessage trans3 hiddenSet">Please Fill all Fields</span>
+		    <h2 class="card-title trans3">Vedaan</h2>
+		    <hr>
+		    <span class="space10"></span>
+			<br>
+
+		    <label class="font14 colorGrey">Head & Brain Problems / Psycological care</label><br>
+
+		    <tr><td><input type="checkbox" id="minorIllness14_1" class="form-check-input hiddenSet" value="1">
+		    <label for="minorIllness14_1" class="checkLabel font12 padBorder">Chronic Headaches <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness14_2" class="form-check-input hiddenSet" value="2">
+		    <label for="minorIllness14_2" class="checkLabel font12 padBorder">Migraine <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness14_3" class="form-check-input hiddenSet" value="3">
+		    <label for="minorIllness14_3" class="checkLabel font12 padBorder">Alzheimer <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness14_4" class="form-check-input hiddenSet" value="4">
+		    <label for="minorIllness14_4" class="checkLabel font12 padBorder">Anxiety <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness14_5" class="form-check-input hiddenSet" value="5">
+		    <label for="minorIllness14_5" class="checkLabel font12 padBorder">Bipolar Disorder <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness14_6" class="form-check-input hiddenSet" value="6">
+		    <label for="minorIllness14_6" class="checkLabel font12 padBorder">Depression <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness14_7" class="form-check-input hiddenSet" value="7">
+		    <label for="minorIllness14_7" class="checkLabel font12 padBorder">Down Syndrome <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness14_8" class="form-check-input hiddenSet" value="8">
+		    <label for="minorIllness14_8" class="checkLabel font12 padBorder">Insomnia <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness14_9" class="form-check-input hiddenSet" value="9">
+		    <label for="minorIllness14_9" class="checkLabel font12 padBorder">Major Depressive Disorder <label class="labelTick">&check;</label></label></td></tr>
+		    
+			<br>
+			</div>
+		    <span class="space10"></span>
+		    <br>
+		    <table class="w-100">
+		    	<tr>
+		    		<td><a class="btn btn-lg btnBorder float-left" onclick="checkMinorMovePrev(2)">Previous</a></td>
+		    		<td><a class="btn btn-lg btnBorder float-right" onclick="checkMinorMoveNext()">Next</a></td>
+		    	</tr>
+		    </table>
+		</div>
+
+		<div class="set hiddenSet card w-100" id="minorIllness15" style="padding: 3em;display: none;">
+		  <div class="card-body">
+		  	<span class="float-right errorMessage trans3 hiddenSet">Please Fill all Fields</span>
+		    <h2 class="card-title trans3">Vedaan</h2>
+		    <hr>
+		    <span class="space10"></span>
+			<br>
+
+		    <label class="font14 colorGrey">Unknown</label><br>
+
+		    <tr><td><input type="checkbox" id="minorIllness15_1" class="form-check-input hiddenSet" value="1">
+		    <label for="minorIllness15_1" class="checkLabel font12 padBorder">Blood Clotting <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness15_2" class="form-check-input hiddenSet" value="2">
+		    <label for="minorIllness15_2" class="checkLabel font12 padBorder">Cancer <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness15_3" class="form-check-input hiddenSet" value="3">
+		    <label for="minorIllness15_3" class="checkLabel font12 padBorder">Chickenpox <label class="labelTick">&check;</label></label></td></tr>
+		    <tr><td><input type="checkbox" id="minorIllness15_4" class="form-check-input hiddenSet" value="4">
+		    <label for="minorIllness15_4" class="checkLabel font12 padBorder">Hepatitis B <label class="labelTick">&check;</label></label></td></tr>
+		    
+			<br>
+			</div>
+		    <span class="space10"></span>
+		    <br>
+		    <table class="w-100">
+		    	<tr>
+		    		<td><a class="btn btn-lg btnBorder float-left" onclick="checkMinorMovePrev(2)">Previous</a></td>
+		    		<td><a class="btn btn-lg btnBorder float-right" onclick="checkMinorMoveNext()">Next</a></td>
+		    	</tr>
+		    </table>
+		</div>
+
+		<div class="set hiddenSet card w-100" style="padding: 3em;display: none;">
+		  <div class="card-body">
+		  	<span class="float-right errorMessage trans3 hiddenSet">Please Fill all Fields</span>
+		    <h2 class="card-title trans3">Vedaan</h2>
+		    <hr>
+		    <span class="space10"></span>
+			<br>
+
+		    <label class="font14 colorGrey">Result</label><br>
+		    	<p class="padBorder" id="result">
+		    		<a class="btn btn-lg btnBorder" onclick="document.getElementById('result').innerHTML = JSON.stringify(allData);">Show Result</a>
+		    	</p>
+		    
+			<br>
+			</div>
+		    <span class="space10"></span>
+		    <br>
+		    <table class="w-100">
+		    	<tr>
+		    		<td><a class="btn btn-lg btnBorder float-left" onclick="checkMinorMovePrev(2)">Previous</a></td>
+		    	</tr>
+		    </table>
+		</div>
+
   	</div>
   </div>
-</div1
+</div>
 </body>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script type="text/javascript">
 	let count = 0;
+	let allData = {}
 	function moveNext(j){
 		let cards = document.getElementsByClassName('card')
-		console.log([(count+j),cards.length, (count+j)])
+		if(j>0 && !validateForm(cards[count])){ showErrorMessage(); return false;}
 		if((count+j) < 0 || cards.length <= (count+j)){return 1;}
 		cards[count].classList.toggle('hiddenSet')
 		setTimeout(function(){
@@ -131,5 +840,70 @@
 			count += j;
 		},640)
 	}
+	function validateForm(row){
+		let rowElement = row.querySelectorAll("input, select, checkbox");
+		if(rowElement[0].id.includes('majorIllness')){allData['majorIllness'] = []}
+		if(row.id && rowElement[0].id.includes(row.id)){allData[row.id] = []}
+		for(let i=0; i<rowElement.length; i++){
+			if(rowElement[i].type == "checkbox"){
+				if(rowElement[i].checked && rowElement[i].id.includes('majorIllness') && !allData['majorIllness'].includes(rowElement[i].value)){
+					allData['majorIllness'].push(`minorIllness${rowElement[i].value}`);
+				}
+				if(rowElement[i].checked && rowElement[i].id.includes('minorIllness') && !allData[row.id].includes(rowElement[i].value)){
+					allData[row.id].push(rowElement[i].value);
+				}
+			}
+			else{
+				if(!rowElement[i].value){ return false;}
+				allData[rowElement[i].id] = rowElement[i].value;
+			}
+		}
+		if(rowElement[0].id.includes('majorIllness') && !allData['majorIllness'].length){ return false;}
+		else if(row.id && rowElement[0].id.includes(row.id) && !allData[row.id].length){ return false; }
+		return true;
+	}
+	function showErrorMessage(){
+		document.getElementsByClassName('card-title')[count].style.color = '#ff0000'
+		document.getElementsByClassName('errorMessage')[count].classList.toggle('hiddenSet')
+		setTimeout(function(){
+			document.getElementsByClassName('card-title')[count].style.color = ''
+			document.getElementsByClassName('errorMessage')[count].classList.toggle('hiddenSet')
+		},3000)
+	}
+	function checkMinorMoveNext(){
+		let j = 1;
+		let checkMinor = true
+		let cards = document.getElementsByClassName('card')
+		if(j>0 && !validateForm(cards[count])){ showErrorMessage(); return false;}
+		while(checkMinor){
+			if((count+j) < 0 || cards.length <= (count+j)){return checkMinorMovePrev(18);}
+			if(allData['majorIllness'].includes(cards[count+j].id)){
+				cards[count].classList.toggle('hiddenSet')
+				setTimeout(function(){
+					cards[count].style.display = 'none'
+					cards[count+j].style.display = 'block'
+				},620)
+				setTimeout(function(){
+					cards[count+j].classList.toggle('hiddenSet')
+					count += j;
+				},640)
+				return true;
+			}
+			j++;
+		}
+	}
+	function checkMinorMovePrev(j){
+		let cards = document.getElementsByClassName('card')
+				cards[count].classList.toggle('hiddenSet')
+				setTimeout(function(){
+					cards[count].style.display = 'none'
+					cards[j].style.display = 'block'
+				},620)
+				setTimeout(function(){
+					cards[j].classList.toggle('hiddenSet')
+					count = j;
+				},640)
+				return true;
+			}
 </script>
 </html>
