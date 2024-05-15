@@ -2910,12 +2910,12 @@ textarea.form-control-lg {
 
 .btn-primary {
   color: #fff;
-  background-color: rgb(206, 117, 23);
+  background-color: #9926f0;
   border-color: #9926f0;
 }
 .btn-primary:hover {
   color: #fff;
-  background-color: rgb(219, 186, 19);
+  background-color: #8220cc;
   border-color: #7a1ec0;
 }
 .btn-check:focus + .btn-primary, .btn-primary:focus {
@@ -4187,7 +4187,7 @@ textarea.form-control-lg {
   color: #fff;
 }
 .navbar-dark .navbar-nav .nav-link {
-  color: rgba(255, 255, 255);
+  color: rgba(255, 255, 255, 0.55);
 }
 .navbar-dark .navbar-nav .nav-link:hover, .navbar-dark .navbar-nav .nav-link:focus {
   color: rgba(255, 255, 255, 0.75);
@@ -4200,8 +4200,8 @@ textarea.form-control-lg {
   color: #fff;
 }
 .navbar-dark .navbar-toggler {
-  color: rgb(255, 255, 255);
-  border-color: rgb(255, 255, 255);
+  color: rgba(255, 255, 255, 0.55);
+  border-color: rgba(255, 255, 255, 0.1);
 }
 .navbar-dark .navbar-toggler-icon {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
@@ -10756,6 +10756,80 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+.card-wrap {
+  margin: 10px auto;
+  width: 240px;
+  height: 320px;
+  perspective: 800px;
+  cursor: pointer;
+}
+.card-wrap .card {
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease-in-out;
+  transform-origin: center;
+  position: relative;
+  border-radius: 10px;
+  z-index: 1;
+  background-color: #333;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.66), inset 0 0 0 5px #333, inset 0 0 0 6px rgba(255, 255, 255, 0.5);
+  overflow: hidden;
+}
+.card-wrap .card:hover {
+  box-shadow: 0 0 40px 5px rgba(255, 255, 255, 0.2), 0 0 0 1px white, 0 20px 40px rgba(0, 0, 0, 0.66), inset 0 0 0 5px #333, inset 0 0 0 6px white;
+}
+.card-wrap .card:hover .card-info {
+  transform: translateY(0);
+  transition: transform 0.6s ease-in-out;
+}
+.card-wrap .card:hover .card-info p {
+  opacity: 1;
+  transition: opacity 0.6s ease-in-out;
+}
+.card-wrap .card .card-bg {
+  opacity: 0.9;
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  width: calc(100% + 40px);
+  height: calc(100% + 40px);
+  z-index: 0;
+}
+.card-wrap .card .card-info {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+  transform: translateY(70%);
+  transition: transform 0.6s ease;
+  text-align: center;
+}
+.card-wrap .card .card-info h1, .card-wrap .card .card-info .h1 {
+  font-family: "Playfair Display";
+  font-size: 24px;
+  font-weight: 700;
+}
+.card-wrap .card .card-info p {
+  opacity: 0;
+}
+.card-wrap .card .card-info .subtext {
+  display: none;
+}
+.card-wrap .card .card-info .subtext:hover {
+  display: block;
+  transform: translateY(0%);
+  transition: transform 0.6s ease;
+}
+
+.card:hover .card-info {
+  transform: translateY(0);
+  transition: transform 0.6s ease-in-out;
+}
+
 .btn-rounded {
   position: relative;
   padding: 0.8375rem 4.375rem 0.8375rem 1.25rem;
@@ -10767,7 +10841,7 @@ textarea.form-control-lg {
 }
 .btn-rounded span {
   position: absolute;
-  background-color: #e2d422;
+  background-color: #9926f0;
   width: 2.5rem;
   height: 2.5rem;
   top: 50%;
@@ -10781,7 +10855,7 @@ textarea.form-control-lg {
   line-height: 2.5rem;
 }
 .btn-rounded:hover {
-  background: linear-gradient(to right, rgb(206, 117, 23), rgba(227, 215, 34));
+  background: linear-gradient(to right, rgba(153, 38, 240, 0.95), rgba(209, 34, 227, 0.95));
   color: #fff;
 }
 .btn-rounded:hover span {
@@ -10840,7 +10914,7 @@ textarea.form-control-lg {
   font-weight: 600;
   font-family: "Poppins", sans-serif;
   display: inline-block;
-  background-image: linear-gradient(to right, rgb(206, 117, 23), rgba(227, 215, 34));
+  background-image: linear-gradient(to right, #9926f0, #d122e3);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -10862,11 +10936,11 @@ textarea.form-control-lg {
 }
 
 .gradient {
-  background: linear-gradient(to right, rgb(206, 117, 23), rgba(227, 215, 34));
+  background: linear-gradient(to right, rgba(153, 38, 240, 0.95), rgba(209, 34, 227, 0.95));
 }
 
 .menu {
-  background: rgb(232, 183, 40);
+  background: linear-gradient(to right, rgba(153, 38, 240, 0.95), rgba(209, 34, 227, 0.95));
 }
 .menu li {
   padding: 0 0.7rem;
@@ -10882,7 +10956,7 @@ textarea.form-control-lg {
 }
 
 .intro-section {
-  background: linear-gradient(to right, rgb(206, 117, 23), rgba(227, 215, 34));
+  background: linear-gradient(to right, rgba(153, 38, 240, 0.95), rgba(209, 34, 227, 0.95));
   padding: 10rem 0 0 0;
   width: 100%;
   height: 100%;
@@ -10968,7 +11042,7 @@ textarea.form-control-lg {
 .testimonials {
   position: relative;
   padding: 0;
-  background: linear-gradient(to left, rgb(206, 117, 23), rgba(227, 215, 34));
+  background: linear-gradient(to right, rgba(153, 38, 240, 0.95), rgba(209, 34, 227, 0.95));
 }
 .testimonials__card {
   background-color: rgba(255, 255, 255, 0.8);
@@ -11024,14 +11098,14 @@ textarea.form-control-lg {
   height: 18.5rem;
   overflow: hidden;
   margin-bottom: 1.2rem;
-  border-top: 0.5rem solid #ecc630;
+  border-top: 0.5rem solid #c685f7;
 }
 .portfolio-box img {
   width: 100%;
   height: 100%;
 }
 .portfolio-box .portfolio-info {
-  background-color: rgba(64, 64, 64, 0.75);
+  background-color: rgba(153, 38, 240, 0.75);
   width: 100%;
   height: 100%;
   position: absolute;
@@ -11213,10 +11287,3 @@ textarea.form-control-lg {
 }
 
 /*# sourceMappingURL=style.css.map */
-
-.border-round-right {
-  border-radius: 5% 40%;
-}
-.border-round-left {
-  border-radius: 40% 5%;
-}
