@@ -1,0 +1,30 @@
+<svg width="1200" height="825" viewBox="0 0 1200 825" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Support and iteration illustration</title>
+  <desc id="desc">Abstract support loop with feedback cards and improvement markers.</desc>
+  <rect width="1200" height="825" rx="40" fill="#F7FAFC"/>
+  <rect x="72" y="72" width="1056" height="681" rx="30" fill="#FFFFFF"/>
+  <rect x="120" y="116" width="960" height="88" rx="28" fill="#EFF6FF"/>
+  <rect x="152" y="146" width="166" height="18" rx="9" fill="#94A3B8"/>
+  <rect x="152" y="178" width="256" height="18" rx="9" fill="#CBD5E1"/>
+  <circle cx="258" cy="392" r="118" fill="#DBEAFE"/>
+  <circle cx="602" cy="392" r="118" fill="#EDE9FE"/>
+  <circle cx="946" cy="392" r="118" fill="#DCFCE7"/>
+  <path d="M376 392H484" stroke="#2563EB" stroke-width="12" stroke-linecap="round"/>
+  <path d="M720 392H828" stroke="#7C3AED" stroke-width="12" stroke-linecap="round"/>
+  <path d="M196 606H1004" stroke="#E2E8F0" stroke-width="6" stroke-linecap="round" stroke-dasharray="12 14"/>
+  <rect x="136" y="630" width="228" height="114" rx="28" fill="#F8FAFC"/>
+  <rect x="404" y="630" width="228" height="114" rx="28" fill="#F8FAFC"/>
+  <rect x="672" y="630" width="228" height="114" rx="28" fill="#F8FAFC"/>
+  <rect x="172" y="662" width="122" height="18" rx="9" fill="#94A3B8"/>
+  <rect x="172" y="694" width="142" height="18" rx="9" fill="#CBD5E1"/>
+  <rect x="440" y="662" width="122" height="18" rx="9" fill="#94A3B8"/>
+  <rect x="440" y="694" width="142" height="18" rx="9" fill="#CBD5E1"/>
+  <rect x="708" y="662" width="122" height="18" rx="9" fill="#94A3B8"/>
+  <rect x="708" y="694" width="142" height="18" rx="9" fill="#CBD5E1"/>
+  <circle cx="258" cy="392" r="52" fill="#FFFFFF"/>
+  <circle cx="602" cy="392" r="52" fill="#FFFFFF"/>
+  <circle cx="946" cy="392" r="52" fill="#FFFFFF"/>
+  <path d="M230 392L250 412L288 372" stroke="#2563EB" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M574 392L594 412L632 372" stroke="#7C3AED" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M918 392L938 412L976 372" stroke="#16A34A" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

@@ -1,0 +1,32 @@
+<svg width="1200" height="825" viewBox="0 0 1200 825" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">E-commerce storefront preview</title>
+  <desc id="desc">Abstract commerce illustration with product cards and checkout cues.</desc>
+  <rect width="1200" height="825" rx="40" fill="#F8F7FF"/>
+  <rect x="74" y="74" width="1052" height="677" rx="30" fill="#FFFFFF"/>
+  <rect x="108" y="110" width="988" height="68" rx="22" fill="#EEF2FF"/>
+  <rect x="140" y="132" width="180" height="18" rx="9" fill="#A5B4FC"/>
+  <rect x="898" y="126" width="164" height="28" rx="14" fill="#7C3AED"/>
+  <rect x="108" y="204" width="246" height="244" rx="28" fill="#F8FAFC"/>
+  <rect x="378" y="204" width="246" height="244" rx="28" fill="#F8FAFC"/>
+  <rect x="648" y="204" width="246" height="244" rx="28" fill="#F8FAFC"/>
+  <rect x="918" y="204" width="178" height="244" rx="28" fill="#F8FAFC"/>
+  <rect x="136" y="238" width="174" height="116" rx="24" fill="#DDD6FE"/>
+  <rect x="406" y="238" width="174" height="116" rx="24" fill="#DBEAFE"/>
+  <rect x="676" y="238" width="174" height="116" rx="24" fill="#DCFCE7"/>
+  <rect x="948" y="238" width="118" height="116" rx="24" fill="#FEF3C7"/>
+  <rect x="136" y="378" width="112" height="16" rx="8" fill="#94A3B8"/>
+  <rect x="136" y="408" width="146" height="18" rx="9" fill="#CBD5E1"/>
+  <rect x="406" y="378" width="112" height="16" rx="8" fill="#94A3B8"/>
+  <rect x="406" y="408" width="146" height="18" rx="9" fill="#CBD5E1"/>
+  <rect x="676" y="378" width="112" height="16" rx="8" fill="#94A3B8"/>
+  <rect x="676" y="408" width="146" height="18" rx="9" fill="#CBD5E1"/>
+  <rect x="948" y="378" width="76" height="16" rx="8" fill="#94A3B8"/>
+  <rect x="948" y="408" width="92" height="18" rx="9" fill="#CBD5E1"/>
+  <rect x="108" y="482" width="690" height="158" rx="30" fill="#F8FAFC"/>
+  <rect x="136" y="518" width="220" height="18" rx="9" fill="#94A3B8"/>
+  <rect x="136" y="550" width="304" height="18" rx="9" fill="#CBD5E1"/>
+  <rect x="136" y="584" width="182" height="18" rx="9" fill="#E2E8F0"/>
+  <rect x="852" y="492" width="194" height="46" rx="23" fill="#7C3AED"/>
+  <rect x="852" y="550" width="194" height="46" rx="23" fill="#2563EB"/>
+  <rect x="852" y="608" width="194" height="46" rx="23" fill="#0F172A"/>
+</svg>

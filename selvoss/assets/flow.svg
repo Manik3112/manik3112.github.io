@@ -1,0 +1,26 @@
+<svg width="1200" height="825" viewBox="0 0 1200 825" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">System flow illustration</title>
+  <desc id="desc">Abstract architecture flow with connected nodes and process lanes.</desc>
+  <rect width="1200" height="825" rx="40" fill="#F8FAFC"/>
+  <rect x="72" y="72" width="1056" height="681" rx="30" fill="#FFFFFF"/>
+  <rect x="122" y="118" width="234" height="74" rx="24" fill="#EFF6FF"/>
+  <rect x="122" y="228" width="234" height="74" rx="24" fill="#F8FAFC"/>
+  <rect x="122" y="338" width="234" height="74" rx="24" fill="#F5F3FF"/>
+  <rect x="122" y="448" width="234" height="74" rx="24" fill="#ECFDF5"/>
+  <rect x="122" y="558" width="234" height="74" rx="24" fill="#FEF3C7"/>
+  <rect x="452" y="160" width="156" height="156" rx="34" fill="#DBEAFE"/>
+  <rect x="648" y="160" width="156" height="156" rx="34" fill="#EDE9FE"/>
+  <rect x="844" y="160" width="156" height="156" rx="34" fill="#DCFCE7"/>
+  <rect x="452" y="390" width="548" height="186" rx="34" fill="#F8FAFC"/>
+  <path d="M356 156H418" stroke="#2563EB" stroke-width="10" stroke-linecap="round"/>
+  <path d="M356 266H418" stroke="#7C3AED" stroke-width="10" stroke-linecap="round"/>
+  <path d="M356 376H418" stroke="#2563EB" stroke-width="10" stroke-linecap="round"/>
+  <path d="M356 486H418" stroke="#16A34A" stroke-width="10" stroke-linecap="round"/>
+  <path d="M356 596H418" stroke="#D97706" stroke-width="10" stroke-linecap="round"/>
+  <path d="M608 238H648" stroke="#94A3B8" stroke-width="10" stroke-linecap="round"/>
+  <path d="M804 238H844" stroke="#94A3B8" stroke-width="10" stroke-linecap="round"/>
+  <rect x="492" y="426" width="148" height="18" rx="9" fill="#94A3B8"/>
+  <rect x="492" y="460" width="236" height="18" rx="9" fill="#CBD5E1"/>
+  <rect x="492" y="494" width="202" height="18" rx="9" fill="#E2E8F0"/>
+  <rect x="492" y="530" width="174" height="18" rx="9" fill="#E2E8F0"/>
+</svg>

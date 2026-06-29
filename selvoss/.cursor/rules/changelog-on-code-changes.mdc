@@ -1,0 +1,12 @@
+---
+description: Require changelog updates when code changes
+alwaysApply: true
+---
+
+# Changelog Rule
+
+- Any code change must include changelog update.
+- Add new entry to project changelog or create one if missing.
+- Keep entry short, factual, and tied to user-visible change.
+- If no changelog file exists, create `CHANGELOG.md` at repo root.
+- Do not skip changelog for small fixes, refactors, or UI updates.
