@@ -1,1330 +1,587 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Tata Punch AMT vs Curvv DCA - Your 7-Year Journey Comparison">
-    <title>Choosing Our Next Journey: Punch AMT vs. Curvv DCA</title>
-    
-    <!-- Preconnect to Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-    
-    <!-- Swiper CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-    
-    <style>
-        /* ========== Reset & Base ========== */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        :root {
-            --bg-primary: #0f0f1e;
-            --bg-secondary: #1a1a2e;
-            --accent-gold: #FFD700;
-            --accent-orange: #FFA500;
-            --text-primary: #FFFFFF;
-            --text-secondary: #E0E0E0;
-            --success: #10B981;
-            --warning: #F59E0B;
-            --danger: #EF4444;
-        }
-        
-        html, body {
-            height: 100%;
-            font-family: 'Inter', sans-serif;
-            color: var(--text-primary);
-            background: var(--bg-primary);
-            overflow: hidden;
-        }
-        
-        /* ========== Typography ========== */
-        h1 {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            font-size: clamp(2.5rem, 6vw, 4.5rem);
-            line-height: 1.2;
-        }
-        
-        h2 {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            font-size: clamp(2rem, 4vw, 3rem);
-            margin-bottom: 1.5rem;
-        }
-        
-        h3 {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 600;
-            font-size: clamp(1.5rem, 3vw, 2rem);
-            margin-bottom: 1rem;
-        }
-        
-        p, li {
-            font-size: clamp(1rem, 2vw, 1.25rem);
-            line-height: 1.7;
-            color: var(--text-secondary);
-        }
-        
-        /* ========== Swiper Override ========== */
-        .swiper {
-            width: 100%;
-            height: 100%;
-        }
-        
-        .swiper-slide {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 2rem;
-            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
-        }
-        
-        .swiper-pagination-bullet {
-            width: 12px;
-            height: 12px;
-            background: var(--text-secondary);
-            opacity: 0.5;
-            transition: all 0.3s;
-        }
-        
-        .swiper-pagination-bullet-active {
-            background: var(--accent-gold);
-            opacity: 1;
-            transform: scale(1.3);
-        }
-        
-        /* ========== Slide Content Container ========== */
-        .slide-content {
-            max-width: 1200px;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            position: relative;
-            z-index: 2;
-        }
-        
-        /* ========== Animations ========== */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        @keyframes pulse {
-            0%, 100% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.1);
-            }
-        }
-        
-        @keyframes bounce {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-10px);
-            }
-        }
-        
-        @keyframes glow {
-            0%, 100% {
-                box-shadow: 0 0 20px var(--accent-gold);
-            }
-            50% {
-                box-shadow: 0 0 40px var(--accent-gold), 0 0 60px var(--accent-orange);
-            }
-        }
-        
-        .fade-in {
-            animation: fadeInUp 0.8s ease-out;
-        }
-        
-        .pulse {
-            animation: pulse 2s ease-in-out infinite;
-        }
-        
-        .bounce {
-            animation: bounce 2s ease-in-out infinite;
-        }
-        
-        /* ========== Slide 1: Title ========== */
-        #particles-js {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            z-index: 1;
-        }
-        
-        .slide-1 .gradient-title {
-            background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-orange) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 1rem;
-        }
-        
-        .slide-1 .subtitle {
-            font-size: clamp(1.2rem, 3vw, 1.8rem);
-            color: var(--text-secondary);
-            margin-bottom: 3rem;
-        }
-        
-        .car-silhouettes {
-            display: flex;
-            gap: 4rem;
-            margin: 3rem 0;
-            align-items: center;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        
-        .car-box {
-            text-align: center;
-            padding: 2rem;
-            border-radius: 20px;
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            transition: all 0.3s;
-        }
-        
-        .car-box:hover {
-            transform: scale(1.05);
-            background: rgba(255, 255, 255, 0.1);
-        }
-        
-        .car-box img {
-            max-width: 300px;
-            width: 100%;
-            height: auto;
-            margin-bottom: 1rem;
-        }
-        
-        .car-box h3 {
-            color: var(--accent-gold);
-            margin-bottom: 0.5rem;
-        }
-        
-        .down-arrow {
-            position: absolute;
-            bottom: 3rem;
-            font-size: 3rem;
-            animation: bounce 2s ease-in-out infinite;
-        }
-        
-        /* ========== Slide 2: Priorities ========== */
-        .two-column {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-            width: 100%;
-        }
-        
-        .icon-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-        }
-        
-        .icon-item {
-            text-align: center;
-            padding: 1.5rem;
-            background: rgba(255, 215, 0, 0.1);
-            border-radius: 15px;
-            transition: all 0.3s;
-        }
-        
-        .icon-item:hover {
-            background: rgba(255, 215, 0, 0.2);
-            transform: translateY(-5px);
-        }
-        
-        .icon-item .emoji {
-            font-size: 3rem;
-            display: block;
-            margin-bottom: 0.5rem;
-        }
-        
-        .icon-item p {
-            font-size: 0.9rem;
-            color: var(--accent-gold);
-            font-weight: 600;
-        }
-        
-        .text-content {
-            text-align: left;
-        }
-        
-        .text-content ul {
-            list-style: none;
-            margin-top: 1.5rem;
-        }
-        
-        .text-content li {
-            padding: 0.8rem 0;
-            padding-left: 2rem;
-            position: relative;
-        }
-        
-        .text-content li::before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: var(--success);
-            font-weight: bold;
-            font-size: 1.3rem;
-        }
-        
-        /* ========== Slide 3 & 4: Car Overview ========== */
-        .car-showcase {
-            width: 100%;
-        }
-        
-        .car-image-container {
-            margin-bottom: 2rem;
-            position: relative;
-        }
-        
-        .car-image-container img {
-            max-width: 600px;
-            width: 100%;
-            height: auto;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-        }
-        
-        .spec-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
-        
-        .spec-card {
-            padding: 1.5rem;
-            border-radius: 15px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 2px solid transparent;
-            transition: all 0.3s;
-        }
-        
-        .spec-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
-        }
-        
-        .spec-card.warning {
-            border-color: var(--warning);
-            background: rgba(245, 158, 11, 0.1);
-        }
-        
-        .spec-card.success {
-            border-color: var(--success);
-            background: rgba(16, 185, 129, 0.1);
-        }
-        
-        .spec-card h4 {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            margin-bottom: 0.5rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        .spec-card .value {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--text-primary);
-        }
-        
-        .warning-badge {
-            display: inline-block;
-            padding: 1rem 2rem;
-            background: linear-gradient(135deg, var(--warning) 0%, #FCD34D 100%);
-            color: var(--bg-primary);
-            border-radius: 30px;
-            font-weight: 700;
-            margin: 1.5rem 0;
-            animation: pulse 2s ease-in-out infinite;
-        }
-        
-        .premium-badge {
-            display: inline-block;
-            padding: 1rem 2rem;
-            background: linear-gradient(135deg, var(--success) 0%, #34D399 100%);
-            color: white;
-            border-radius: 30px;
-            font-weight: 700;
-            margin: 1.5rem 0;
-            animation: glow 2s ease-in-out infinite;
-        }
-        
-        /* ========== Slide 5: Aura ========== */
-        .split-screen {
-            display: grid;
-            grid-template-columns: 1fr auto 1fr;
-            gap: 2rem;
-            align-items: center;
-            width: 100%;
-            margin: 2rem 0;
-        }
-        
-        .car-comparison {
-            text-align: center;
-            padding: 2rem;
-            border-radius: 20px;
-            transition: all 0.3s;
-        }
-        
-        .car-comparison.faded {
-            opacity: 0.5;
-            filter: grayscale(0.7);
-        }
-        
-        .car-comparison.glowing {
-            box-shadow: 0 0 40px var(--accent-gold);
-        }
-        
-        .car-comparison img {
-            max-width: 350px;
-            width: 100%;
-            height: auto;
-            border-radius: 15px;
-            margin-bottom: 1rem;
-        }
-        
-        .vs-divider {
-            font-size: 3rem;
-            font-weight: 700;
-            color: var(--accent-gold);
-            padding: 0 2rem;
-        }
-        
-        .aura-score {
-            margin-top: 1.5rem;
-        }
-        
-        .aura-bar {
-            height: 30px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            overflow: hidden;
-            margin-top: 0.5rem;
-        }
-        
-        .aura-fill {
-            height: 100%;
-            background: linear-gradient(90deg, var(--accent-gold) 0%, var(--accent-orange) 100%);
-            border-radius: 15px;
-            transition: width 1s ease-out;
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-            padding-right: 1rem;
-            font-weight: 700;
-            font-size: 0.9rem;
-        }
-        
-        /* ========== Slide 6: Camping ========== */
-        .camping-hero {
-            width: 100%;
-            position: relative;
-            border-radius: 20px;
-            overflow: hidden;
-            margin-bottom: 2rem;
-        }
-        
-        .camping-hero img {
-            width: 100%;
-            height: 400px;
-            object-fit: cover;
-        }
-        
-        .camping-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(to top, rgba(15, 15, 30, 0.95) 0%, transparent 100%);
-            padding: 2rem;
-        }
-        
-        .boot-comparison {
-            display: flex;
-            gap: 2rem;
-            margin: 2rem 0;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .boot-bar {
-            flex: 1;
-            max-width: 400px;
-        }
-        
-        .boot-bar h4 {
-            margin-bottom: 0.5rem;
-            font-size: 1.2rem;
-        }
-        
-        .boot-bar .bar {
-            height: 40px;
-            border-radius: 20px;
-            position: relative;
-            overflow: hidden;
-            background: rgba(255, 255, 255, 0.1);
-        }
-        
-        .boot-bar .bar-fill {
-            height: 100%;
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            transition: width 1s ease-out;
-        }
-        
-        .boot-bar.punch .bar-fill {
-            background: linear-gradient(90deg, var(--warning) 0%, #FCD34D 100%);
-        }
-        
-        .boot-bar.curvv .bar-fill {
-            background: linear-gradient(90deg, var(--success) 0%, #34D399 100%);
-        }
-        
-        .camping-checklist {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-        
-        .checklist-item {
-            padding: 1rem;
-            background: rgba(16, 185, 129, 0.1);
-            border: 2px solid var(--success);
-            border-radius: 10px;
-            text-align: left;
-        }
-        
-        .checklist-item::before {
-            content: "✅ ";
-            font-size: 1.5rem;
-            margin-right: 0.5rem;
-        }
-        
-        /* ========== Slide 7: Comparison Table ========== */
-        .comparison-table {
-            width: 100%;
-            max-width: 1000px;
-            border-collapse: collapse;
-            margin: 2rem 0;
-            border-radius: 15px;
-            overflow: hidden;
-        }
-        
-        .comparison-table thead {
-            background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-orange) 100%);
-        }
-        
-        .comparison-table th {
-            padding: 1.5rem;
-            font-weight: 700;
-            font-size: 1.2rem;
-            color: var(--bg-primary);
-            text-align: left;
-        }
-        
-        .comparison-table td {
-            padding: 1.5rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 1rem;
-        }
-        
-        .comparison-table tbody tr {
-            background: rgba(255, 255, 255, 0.05);
-            transition: all 0.3s;
-        }
-        
-        .comparison-table tbody tr:nth-child(even) {
-            background: rgba(255, 255, 255, 0.02);
-        }
-        
-        .comparison-table tbody tr:hover {
-            background: rgba(255, 215, 0, 0.1);
-            transform: scale(1.02);
-        }
-        
-        .comparison-table .category {
-            font-weight: 600;
-            color: var(--accent-gold);
-        }
-        
-        .comparison-table .punch-col {
-            color: var(--text-secondary);
-        }
-        
-        .comparison-table .curvv-col {
-            color: var(--success);
-            font-weight: 600;
-        }
-        
-        /* ========== Slide 8: Financial ========== */
-        .financial-breakdown {
-            width: 100%;
-            text-align: center;
-        }
-        
-        .big-number {
-            font-size: clamp(3rem, 8vw, 6rem);
-            font-weight: 700;
-            color: var(--accent-gold);
-            margin: 2rem 0;
-        }
-        
-        .math-flow {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 2rem;
-            margin: 2rem 0;
-            flex-wrap: wrap;
-        }
-        
-        .math-item {
-            padding: 1.5rem 2.5rem;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            font-size: 1.5rem;
-            font-weight: 700;
-        }
-        
-        .math-operator {
-            font-size: 2rem;
-            color: var(--accent-gold);
-        }
-        
-        .regret-card {
-            max-width: 700px;
-            margin: 3rem auto;
-            padding: 2rem;
-            background: linear-gradient(135deg, rgba(239, 68, 68, 0.2) 0%, rgba(245, 158, 11, 0.2) 100%);
-            border: 2px solid var(--warning);
-            border-radius: 20px;
-            animation: pulse 3s ease-in-out infinite;
-        }
-        
-        .regret-card h3 {
-            color: var(--warning);
-            margin-bottom: 1rem;
-        }
-        
-        .lifestyle-metaphor {
-            display: flex;
-            gap: 2rem;
-            justify-content: center;
-            margin-top: 2rem;
-        }
-        
-        .metaphor-item {
-            text-align: center;
-            padding: 1rem;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 10px;
-        }
-        
-        .metaphor-item .emoji {
-            font-size: 2.5rem;
-            display: block;
-            margin-bottom: 0.5rem;
-        }
-        
-        /* ========== Slide 9: Conclusion ========== */
-        .conclusion {
-            text-align: center;
-            width: 100%;
-        }
-        
-        .takeaway {
-            margin: 3rem 0;
-            padding: 2rem;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 20px;
-        }
-        
-        .takeaway h2 {
-            color: var(--accent-gold);
-        }
-        
-        .comparison-badges {
-            display: flex;
-            gap: 3rem;
-            justify-content: center;
-            margin: 2rem 0;
-            flex-wrap: wrap;
-        }
-        
-        .comparison-badge {
-            padding: 1.5rem 2rem;
-            border-radius: 15px;
-            min-width: 250px;
-        }
-        
-        .comparison-badge.punch {
-            background: rgba(245, 158, 11, 0.2);
-            border: 2px solid var(--warning);
-        }
-        
-        .comparison-badge.curvv {
-            background: rgba(16, 185, 129, 0.2);
-            border: 2px solid var(--success);
-        }
-        
-        .comparison-badge .emoji {
-            font-size: 2.5rem;
-            display: block;
-            margin-bottom: 0.5rem;
-        }
-        
-        .cta-section {
-            margin-top: 3rem;
-        }
-        
-        .cta-button {
-            display: inline-block;
-            padding: 1.5rem 3rem;
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: var(--bg-primary);
-            background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-orange) 100%);
-            border-radius: 50px;
-            text-decoration: none;
-            transition: all 0.3s;
-            animation: glow 2s ease-in-out infinite;
-            cursor: pointer;
-            border: none;
-        }
-        
-        .cta-button:hover {
-            transform: scale(1.1);
-            box-shadow: 0 10px 40px var(--accent-gold);
-        }
-        
-        /* ========== Responsive ========== */
-        @media (max-width: 768px) {
-            .swiper-slide {
-                padding: 1rem;
-            }
-            
-            .two-column {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            
-            .icon-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 1rem;
-            }
-            
-            .car-silhouettes {
-                gap: 2rem;
-            }
-            
-            .car-box img {
-                max-width: 200px;
-            }
-            
-            .split-screen {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-            
-            .vs-divider {
-                transform: rotate(90deg);
-                margin: 1rem 0;
-            }
-            
-            .spec-cards {
-                grid-template-columns: 1fr;
-            }
-            
-            .comparison-table {
-                font-size: 0.8rem;
-            }
-            
-            .comparison-table th,
-            .comparison-table td {
-                padding: 0.8rem;
-            }
-            
-            .math-flow {
-                flex-direction: column;
-                gap: 1rem;
-            }
-            
-            .lifestyle-metaphor {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .comparison-badges {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .boot-comparison {
-                flex-direction: column;
-            }
-        }
-    </style>
-</head>
-<body>
-    <!-- Swiper Container -->
-    <div class="swiper">
-        <div class="swiper-wrapper">
-            
-            <!-- ========== Slide 1: Title ========== -->
-            <div class="swiper-slide slide-1">
-                <div id="particles-js"></div>
-                <div class="slide-content fade-in">
-                    <h1 class="gradient-title">Choosing Our Next Journey</h1>
-                    <p class="subtitle">Upgrading Our Lifestyle for the Next 7 Years</p>
-                    
-                    <div class="car-silhouettes">
-                        <div class="car-box">
-                            <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=400&h=250&fit=crop" alt="Tata Punch" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22200%22%3E%3Crect fill=%22%231a1a2e%22 width=%22300%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2224%22 fill=%22%23FFD700%22 text-anchor=%22middle%22 dy=%22.3em%22%3EPunch AMT%3C/text%3E%3C/svg%3E'">
-                            <h3>Tata Punch Adventure AMT</h3>
-                            <p style="color: var(--warning);">The Budget Champion</p>
-                        </div>
-                        
-                        <div class="car-box">
-                            <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=400&h=250&fit=crop" alt="Tata Curvv" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22200%22%3E%3Crect fill=%22%231a1a2e%22 width=%22300%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2224%22 fill=%22%2310B981%22 text-anchor=%22middle%22 dy=%22.3em%22%3ECurvv DCA%3C/text%3E%3C/svg%3E'">
-                            <h3>Tata Curvv Pure+ DCA</h3>
-                            <p style="color: var(--success);">The Premium Evolution</p>
-                        </div>
-                    </div>
-                    
-                    <div class="down-arrow">↓</div>
-                </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Comprehensive comparison of Tata Punch Adventure AMT vs Tata Curvv Pure+ DCA for 7-year ownership"
+    />
+    <title>Tata Punch AMT vs Curvv DCA | 7-Year Family Car Decision</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="site-header">
+        <a class="brand" href="#top" aria-label="Home">
+          <span class="brand-mark">🚗</span>
+          <span class="brand-text">
+            <strong>Our Next Journey</strong>
+            <span>7-Year Car Decision</span>
+          </span>
+        </a>
+
+        <nav class="site-nav" aria-label="Primary">
+          <a href="#priorities">Priorities</a>
+          <a href="#comparison">Comparison</a>
+          <a href="#aura">Lifestyle</a>
+          <a href="#financial">Financial</a>
+          <a href="#conclusion">Decision</a>
+        </nav>
+
+        <a class="button button-ghost" href="#conclusion">Make Decision</a>
+      </header>
+
+      <main id="top">
+        <!-- Hero Section -->
+        <section class="hero section reveal">
+          <div class="hero-copy">
+            <p class="eyebrow">Choosing Our Next Journey</p>
+            <h1>Punch AMT vs. Curvv DCA</h1>
+            <p class="hero-text">
+              A data-driven, emotionally compelling comparison for our 7-year family car decision.
+              We're upgrading our lifestyle for the next chapter, from our late 20s through mid-30s.
+            </p>
+
+            <div class="hero-actions">
+              <a class="button button-primary" href="#comparison">Compare Now</a>
+              <a class="button button-secondary" href="#financial">See Financials</a>
             </div>
-            
-            <!-- ========== Slide 2: Priorities ========== -->
-            <div class="swiper-slide">
-                <div class="slide-content fade-in">
-                    <h2>Acknowledging Our Priorities</h2>
-                    <p style="font-size: 1.3rem; margin-bottom: 2rem;">This is a long-term commitment</p>
-                    
-                    <div class="two-column">
-                        <div class="icon-grid">
-                            <div class="icon-item">
-                                <span class="emoji">🛡️</span>
-                                <p>Tata's Safety</p>
-                            </div>
-                            <div class="icon-item">
-                                <span class="emoji">📅</span>
-                                <p>7 Years Journey</p>
-                            </div>
-                            <div class="icon-item">
-                                <span class="emoji">🏔️</span>
-                                <p>Adventure Ready</p>
-                            </div>
-                            <div class="icon-item">
-                                <span class="emoji">✈️</span>
-                                <p>Weekend Escapes</p>
-                            </div>
-                        </div>
-                        
-                        <div class="text-content">
-                            <h3>Both Cars Satisfy:</h3>
-                            <ul>
-                                <li>Tata's legendary safety and build quality</li>
-                                <li>Pride in supporting local manufacturing</li>
-                                <li>Proven reliability and service network</li>
-                            </ul>
-                            
-                            <h3 style="margin-top: 2rem; color: var(--accent-gold);">The 7-Year Reality:</h3>
-                            <p>We're in our late 20s. This car will carry us through our mid-30s.</p>
-                            <p style="margin-top: 1rem;">It needs to match our evolving taste, weekend travel ambitions, and outdoor adventures.</p>
-                        </div>
-                    </div>
-                </div>
+
+            <ul class="hero-points" aria-label="Highlights">
+              <li>Built on Tata's legendary safety and quality</li>
+              <li>7-year ownership perspective for late 20s couple</li>
+              <li>Weekend travel, mountain trips, and car camping ready</li>
+            </ul>
+          </div>
+
+          <aside class="hero-panel" aria-label="Core comparison">
+            <div class="panel-card panel-card-feature">
+              <span class="panel-kicker">Two choices, one decision</span>
+              <h2>Budget champion or premium evolution?</h2>
+              <p>
+                Both cars deliver Tata's safety and reliability. But only one will truly elevate
+                our lifestyle, road presence, and adventure capability for the next 7 years.
+              </p>
             </div>
-            
-            <!-- ========== Slide 3: Punch ========== -->
-            <div class="swiper-slide">
-                <div class="slide-content fade-in">
-                    <h2>Tata Punch Adventure AMT</h2>
-                    <p style="font-size: 1.2rem; color: var(--warning);">🚗 The Compact City Runabout</p>
-                    
-                    <div class="car-showcase">
-                        <div class="car-image-container">
-                            <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=600&h=400&fit=crop" alt="Tata Punch Adventure" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22600%22 height=%22400%22%3E%3Crect fill=%22%231a1a2e%22 width=%22600%22 height=%22400%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2232%22 fill=%22%23F59E0B%22 text-anchor=%22middle%22 dy=%22.3em%22%3ETata Punch Adventure AMT%3C/text%3E%3C/svg%3E'">
-                        </div>
-                        
-                        <div class="spec-cards">
-                            <div class="spec-card warning">
-                                <h4>Engine</h4>
-                                <p class="value">1.2L NA</p>
-                                <p style="font-size: 0.9rem;">87 bhp</p>
-                            </div>
-                            <div class="spec-card warning">
-                                <h4>Transmission</h4>
-                                <p class="value">5-Speed AMT</p>
-                                <p style="font-size: 0.9rem;">Laggy shifts</p>
-                            </div>
-                            <div class="spec-card">
-                                <h4>Segment</h4>
-                                <p class="value">Micro-SUV</p>
-                                <p style="font-size: 0.9rem;">Hatchback platform</p>
-                            </div>
-                            <div class="spec-card">
-                                <h4>Ground Clearance</h4>
-                                <p class="value">187mm</p>
-                                <p style="font-size: 0.9rem;">With cladding</p>
-                            </div>
-                        </div>
-                        
-                        <div class="warning-badge">⚠️ 7-Year Reality Check</div>
-                        
-                        <div class="text-content" style="text-align: center; max-width: 800px; margin: 0 auto;">
-                            <h3>The Strengths:</h3>
-                            <p>✓ Excellent budget fit • Compact for tight city parking<br>
-                            ✓ High ground clearance • Familiar Tata toughness</p>
-                            
-                            <h3 style="margin-top: 2rem; color: var(--warning);">The Long-Term Consideration:</h3>
-                            <p>This is a micro-SUV built on a hatchback platform. The 5-speed AMT gearbox and 87 bhp engine are tuned strictly for relaxed city traffic.</p>
-                            <p style="margin-top: 1rem; font-weight: 600;">Over a long ownership cycle, it will feel limited on highway road trips and steep mountain climbs.</p>
-                        </div>
-                    </div>
-                </div>
+
+            <div class="panel-grid">
+              <article class="mini-card mini-card-warning">
+                <span>Punch</span>
+                <strong>Budget-Friendly</strong>
+                <p>Fits 10-12L budget today</p>
+              </article>
+              <article class="mini-card mini-card-success">
+                <span>Curvv</span>
+                <strong>Future-Ready</strong>
+                <p>₹9,700/mo lifestyle upgrade</p>
+              </article>
             </div>
-            
-            <!-- ========== Slide 4: Curvv ========== -->
-            <div class="swiper-slide">
-                <div class="slide-content fade-in">
-                    <h2>Tata Curvv Pure+ DCA</h2>
-                    <p style="font-size: 1.2rem; color: var(--success);">🏔️⚡ The True Mid-Sized SUV Stance</p>
-                    
-                    <div class="car-showcase">
-                        <div class="car-image-container">
-                            <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=600&h=400&fit=crop" alt="Tata Curvv Pure+" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22600%22 height=%22400%22%3E%3Crect fill=%22%231a1a2e%22 width=%22600%22 height=%22400%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2232%22 fill=%22%2310B981%22 text-anchor=%22middle%22 dy=%22.3em%22%3ETata Curvv Pure%2B DCA%3C/text%3E%3C/svg%3E'">
-                        </div>
-                        
-                        <div class="spec-cards">
-                            <div class="spec-card success">
-                                <h4>Engine</h4>
-                                <p class="value">1.2L Turbo</p>
-                                <p style="font-size: 0.9rem;">118 bhp • 170 Nm</p>
-                            </div>
-                            <div class="spec-card success">
-                                <h4>Transmission</h4>
-                                <p class="value">7-Speed DCA</p>
-                                <p style="font-size: 0.9rem;">Lightning-fast</p>
-                            </div>
-                            <div class="spec-card success">
-                                <h4>Segment</h4>
-                                <p class="value">Mid-Size SUV</p>
-                                <p style="font-size: 0.9rem;">Coupe styling</p>
-                            </div>
-                            <div class="spec-card success">
-                                <h4>Tyres</h4>
-                                <p class="value">215mm Wide</p>
-                                <p style="font-size: 0.9rem;">High-speed grip</p>
-                            </div>
-                        </div>
-                        
-                        <div class="premium-badge">✨ Core Upgrades</div>
-                        
-                        <div class="text-content" style="text-align: center; max-width: 900px; margin: 0 auto;">
-                            <h3 style="color: var(--success);">Performance:</h3>
-                            <p>1.2L Turbocharged engine with 118 bhp and 170 Nm torque means effortless mountain climbing and safe highway overtaking.</p>
-                            
-                            <h3 style="margin-top: 1.5rem; color: var(--success);">Transmission:</h3>
-                            <p>World-class 7-speed Dual Clutch Automatic (DCA) replaces laggy AMT gearshifts with lightning-fast, seamless refinement.</p>
-                            
-                            <h3 style="margin-top: 1.5rem; color: var(--success);">Actual SUV DNA:</h3>
-                            <p>Built on a larger, wider platform with massive 215mm wide tyres that glue the car to the tarmac at high speeds.</p>
-                        </div>
-                    </div>
+          </aside>
+        </section>
+
+        <!-- Trust Strip -->
+        <section class="trust-strip section reveal" aria-label="Core strengths">
+          <span>🛡️ Tata Safety</span>
+          <span>📅 7-Year Journey</span>
+          <span>🏔️ Adventure Ready</span>
+          <span>✨ Premium Presence</span>
+          <span>⛺ Car Camping</span>
+        </section>
+
+        <!-- Priorities Section -->
+        <section class="section reveal" id="priorities">
+          <div class="section-heading">
+            <p class="eyebrow">Foundation</p>
+            <h2>Acknowledging Our Priorities</h2>
+            <p>
+              This is a long-term commitment. Both cars satisfy our love for Tata's safety, build
+              quality, and local pride. But we need to think about where we'll be in 7 years.
+            </p>
+          </div>
+
+          <div class="priorities-layout">
+            <article class="priority-card">
+              <span class="priority-icon">🛡️</span>
+              <h3>Safety First</h3>
+              <p>Both cars deliver Tata's legendary safety standards and robust build quality</p>
+            </article>
+
+            <article class="priority-card">
+              <span class="priority-icon">📅</span>
+              <h3>7-Year Timeline</h3>
+              <p>We're in our late 20s. This car carries us through our mid-30s</p>
+            </article>
+
+            <article class="priority-card">
+              <span class="priority-icon">🏔️</span>
+              <h3>Evolving Lifestyle</h3>
+              <p>Weekend travel ambitions and outdoor adventures will grow with us</p>
+            </article>
+
+            <article class="priority-card">
+              <span class="priority-icon">🇮🇳</span>
+              <h3>Local Pride</h3>
+              <p>Supporting Indian manufacturing and innovation matters to us</p>
+            </article>
+          </div>
+
+          <div class="insight-banner">
+            <h3>The 7-Year Reality</h3>
+            <p>
+              This car needs to match our evolving taste, growing family considerations, and
+              expanding travel horizons. What fits today might feel limiting in 3 years.
+            </p>
+          </div>
+        </section>
+
+        <!-- Car Comparison Section -->
+        <section class="section reveal" id="comparison">
+          <div class="section-heading">
+            <p class="eyebrow">Detailed Comparison</p>
+            <h2>Punch AMT vs. Curvv DCA</h2>
+            <p>
+              A comprehensive look at both vehicles across performance, features, and long-term
+              suitability for our lifestyle needs.
+            </p>
+          </div>
+
+          <div class="car-comparison-grid">
+            <!-- Punch Card -->
+            <article class="car-card car-card-punch">
+              <div class="car-card-header">
+                <span class="car-tag car-tag-warning">Budget Champion</span>
+                <h3>Tata Punch Adventure AMT</h3>
+                <p class="car-subtitle">The Compact City Runabout 🚗</p>
+              </div>
+
+              <div class="car-image">
+                <img
+                  src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=600&h=400&fit=crop"
+                  alt="Tata Punch Adventure AMT"
+                  onerror="this.parentElement.innerHTML='<div class=image-placeholder><p>Tata Punch Adventure AMT</p></div>'"
+                />
+              </div>
+
+              <div class="car-specs">
+                <div class="spec-row">
+                  <span class="spec-label">Engine</span>
+                  <span class="spec-value">1.2L NA • 87 bhp</span>
                 </div>
-            </div>
-            
-            <!-- ========== Slide 5: Aura ========== -->
-            <div class="swiper-slide">
-                <div class="slide-content fade-in">
-                    <h2>Elite Road Presence & "Aura Farming"</h2>
-                    <p style="font-size: 1.3rem; margin-bottom: 2rem;">✨👑 How a car makes you feel when you step out of it</p>
-                    
-                    <div class="split-screen">
-                        <div class="car-comparison faded">
-                            <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=350&h=230&fit=crop" alt="Punch" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22350%22 height=%22230%22%3E%3Crect fill=%22%231a1a2e%22 width=%22350%22 height=%22230%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2220%22 fill=%22%23888%22 text-anchor=%22middle%22 dy=%22.3em%22%3EPunch%3C/text%3E%3C/svg%3E'">
-                            <h3 style="color: var(--warning);">Punch AMT</h3>
-                            <p>Practical but common</p>
-                            <div class="aura-score">
-                                <p style="font-size: 0.9rem;">Aura Score</p>
-                                <div class="aura-bar">
-                                    <div class="aura-fill" style="width: 60%; background: linear-gradient(90deg, var(--warning) 0%, #FCD34D 100%);">6/10</div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="vs-divider">VS</div>
-                        
-                        <div class="car-comparison glowing pulse">
-                            <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=350&h=230&fit=crop" alt="Curvv" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22350%22 height=%22230%22%3E%3Crect fill=%22%231a1a2e%22 width=%22350%22 height=%22230%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2220%22 fill=%22%2310B981%22 text-anchor=%22middle%22 dy=%22.3em%22%3ECurvv%3C/text%3E%3C/svg%3E'">
-                            <h3 style="color: var(--success);">Curvv DCA</h3>
-                            <p>Premium Head-Turner</p>
-                            <div class="aura-score">
-                                <p style="font-size: 0.9rem;">Aura Score</p>
-                                <div class="aura-bar">
-                                    <div class="aura-fill" style="width: 95%;">9.5/10</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="text-content" style="text-align: center; max-width: 900px; margin: 2rem auto;">
-                        <ul style="text-align: left; max-width: 700px; margin: 0 auto;">
-                            <li style="padding-left: 2.5rem;">The Punch is highly practical but incredibly common on Indian roads today</li>
-                            <li style="padding-left: 2.5rem;">The Curvv delivers insane "Aura"—the striking, futuristic Coupe-SUV silhouette is a massive head-turner</li>
-                            <li style="padding-left: 2.5rem;">It commands premium road presence and looks and feels like a luxury segment vehicle</li>
-                            <li style="padding-left: 2.5rem;">Immense pride of ownership every single day for the next 7 years</li>
-                        </ul>
-                    </div>
+                <div class="spec-row">
+                  <span class="spec-label">Transmission</span>
+                  <span class="spec-value">5-Speed AMT</span>
                 </div>
-            </div>
-            
-            <!-- ========== Slide 6: Camping ========== -->
-            <div class="swiper-slide">
-                <div class="slide-content fade-in">
-                    <h2>Unlocking Adventure – Ready for Car Camping</h2>
-                    <p style="font-size: 1.3rem; margin-bottom: 2rem;">⛺🌌🎒 The Curvv adapts to modern outdoor trends</p>
-                    
-                    <div class="camping-hero">
-                        <img src="https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?w=1200&h=400&fit=crop" alt="Car Camping" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%221200%22 height=%22400%22%3E%3Crect fill=%22%231a1a2e%22 width=%221200%22 height=%22400%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2236%22 fill=%22%23FFD700%22 text-anchor=%22middle%22 dy=%22.3em%22%3ECar Camping Adventure%3C/text%3E%3C/svg%3E'">
-                        <div class="camping-overlay">
-                            <h3 style="color: var(--accent-gold);">The Lifestyle Flip</h3>
-                        </div>
-                    </div>
-                    
-                    <div class="boot-comparison">
-                        <div class="boot-bar punch">
-                            <h4 style="color: var(--warning);">Punch: 366L</h4>
-                            <div class="bar">
-                                <div class="bar-fill" style="width: 73%;">366L</div>
-                            </div>
-                            <p style="font-size: 0.9rem; margin-top: 0.5rem;">Limited • Traditional luggage only</p>
-                        </div>
-                        
-                        <div class="boot-bar curvv">
-                            <h4 style="color: var(--success);">Curvv: 500L</h4>
-                            <div class="bar">
-                                <div class="bar-fill" style="width: 100%;">500L</div>
-                            </div>
-                            <p style="font-size: 0.9rem; margin-top: 0.5rem;">Excellent • +37% more space</p>
-                        </div>
-                    </div>
-                    
-                    <div class="text-content" style="text-align: center; max-width: 900px; margin: 2rem auto;">
-                        <h3 style="color: var(--success);">Key Points:</h3>
-                        <p>✓ Massive 500-litre boot space that transforms when seats are folded</p>
-                        <p>✓ Perfect geometry and length for Car Camping setups during our mountain trips</p>
-                        <p>✓ Lay down comfortably, watch the stars, and pack heavy camping gear effortlessly</p>
-                        <p style="margin-top: 1rem; color: var(--warning);">⚠️ The Punch's 366-litre boot is strictly for traditional luggage and restricts spontaneous overnight outdoor stays</p>
-                    </div>
-                    
-                    <div class="camping-checklist">
-                        <div class="checklist-item">Lay Flat Sleeping Space</div>
-                        <div class="checklist-item">Stargazing Setup</div>
-                        <div class="checklist-item">Heavy Gear Storage</div>
-                        <div class="checklist-item">Spontaneous Overnight Stays</div>
-                    </div>
+                <div class="spec-row">
+                  <span class="spec-label">Segment</span>
+                  <span class="spec-value">Micro-SUV</span>
                 </div>
-            </div>
-            
-            <!-- ========== Slide 7: Comparison Table ========== -->
-            <div class="swiper-slide">
-                <div class="slide-content fade-in">
-                    <h2>Side-by-Side Comparison Matrix</h2>
-                    
-                    <table class="comparison-table">
-                        <thead>
-                            <tr>
-                                <th>Category</th>
-                                <th style="text-align: center;">Punch Adventure AMT</th>
-                                <th style="text-align: center;">Curvv Pure+ DCA</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="category">Engine Type</td>
-                                <td class="punch-col" style="text-align: center;">1.2L NA (87 bhp)</td>
-                                <td class="curvv-col" style="text-align: center;">✅ 1.2L Turbo (118 bhp, 170 Nm)</td>
-                            </tr>
-                            <tr>
-                                <td class="category">Transmission</td>
-                                <td class="punch-col" style="text-align: center;">⚠️ 5-Speed AMT (laggy)</td>
-                                <td class="curvv-col" style="text-align: center;">✅ 7-Speed DCA (seamless)</td>
-                            </tr>
-                            <tr>
-                                <td class="category">Segment</td>
-                                <td class="punch-col" style="text-align: center;">Micro-SUV (hatchback platform)</td>
-                                <td class="curvv-col" style="text-align: center;">✅ Mid-Size Coupe SUV</td>
-                            </tr>
-                            <tr>
-                                <td class="category">Boot Space</td>
-                                <td class="punch-col" style="text-align: center;">366L (limited)</td>
-                                <td class="curvv-col" style="text-align: center;">✅ 500L (excellent)</td>
-                            </tr>
-                            <tr>
-                                <td class="category">Camping Potential</td>
-                                <td class="punch-col" style="text-align: center;">❌ Limited</td>
-                                <td class="curvv-col" style="text-align: center;">✅ Excellent</td>
-                            </tr>
-                            <tr>
-                                <td class="category">Road Presence</td>
-                                <td class="punch-col" style="text-align: center;">⚠️ Common City Car</td>
-                                <td class="curvv-col" style="text-align: center;">✨ Premium Head-Turner</td>
-                            </tr>
-                            <tr>
-                                <td class="category">Highway Performance</td>
-                                <td class="punch-col" style="text-align: center;">⚠️ Limited</td>
-                                <td class="curvv-col" style="text-align: center;">✅ Effortless</td>
-                            </tr>
-                            <tr>
-                                <td class="category">Mountain Driving</td>
-                                <td class="punch-col" style="text-align: center;">⚠️ Struggles</td>
-                                <td class="curvv-col" style="text-align: center;">✅ Confident</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div class="spec-row">
+                  <span class="spec-label">Boot Space</span>
+                  <span class="spec-value">366L</span>
                 </div>
-            </div>
-            
-            <!-- ========== Slide 8: Financial ========== -->
-            <div class="swiper-slide">
-                <div class="slide-content fade-in">
-                    <h2>The 7-Year Financial Reality</h2>
-                    <p style="font-size: 1.3rem; margin-bottom: 2rem;">Breaking Down the Stretch</p>
-                    
-                    <div class="financial-breakdown">
-                        <h3>Over 84 months (7 years), a 5 Lakh difference changes perspective</h3>
-                        
-                        <div class="big-number">₹5,00,000</div>
-                        
-                        <div class="math-flow">
-                            <div class="math-item">₹5,00,000</div>
-                            <div class="math-operator">÷</div>
-                            <div class="math-item">84 months</div>
-                            <div class="math-operator">=</div>
-                            <div class="math-item" style="background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-orange) 100%); color: var(--bg-primary);">₹9,700/month</div>
-                        </div>
-                        
-                        <p style="font-size: 1.2rem; margin-top: 2rem;">That's just <strong style="color: var(--accent-gold);">₹323 per day</strong></p>
-                        
-                        <div class="lifestyle-metaphor">
-                            <div class="metaphor-item">
-                                <span class="emoji">☕</span>
-                                <p>Less than 3 premium coffees daily</p>
-                            </div>
-                            <div class="metaphor-item">
-                                <span class="emoji">🎬</span>
-                                <p>4 movie tickets monthly</p>
-                            </div>
-                        </div>
-                        
-                        <div class="regret-card">
-                            <h3>💸 The Hidden Cost of Compromise</h3>
-                            <h4 style="color: var(--text-primary); margin-top: 1rem;">The "Regret Tax"</h4>
-                            <p style="margin-top: 1rem;">Spending money to buy a car that feels like a compromise in 3 years costs more in trade-in depreciation than buying the premium vehicle today.</p>
-                            <p style="font-weight: 700; margin-top: 1rem; font-size: 1.2rem; color: var(--warning);">Don't pay the Regret Tax</p>
-                        </div>
-                        
-                        <p style="font-size: 1.1rem; margin-top: 2rem; max-width: 700px; margin-left: auto; margin-right: auto;">Frame the Curvv as an incremental monthly lifestyle upgrade (approx. ₹9,700 extra per month) rather than a scary upfront cost.</p>
-                    </div>
+              </div>
+
+              <div class="car-strengths">
+                <h4>Strengths</h4>
+                <ul>
+                  <li>✓ Excellent budget fit</li>
+                  <li>✓ Compact for city parking</li>
+                  <li>✓ High ground clearance</li>
+                  <li>✓ Tata build quality</li>
+                </ul>
+              </div>
+
+              <div class="car-reality-check">
+                <h4>⚠️ 7-Year Reality Check</h4>
+                <p>
+                  Micro-SUV built on hatchback platform. 5-speed AMT and 87 bhp tuned for city
+                  traffic only. Over 7 years, will feel limited on highway trips and mountain climbs.
+                </p>
+              </div>
+            </article>
+
+            <!-- Curvv Card -->
+            <article class="car-card car-card-curvv">
+              <div class="car-card-header">
+                <span class="car-tag car-tag-success">Premium Evolution</span>
+                <h3>Tata Curvv Pure+ DCA</h3>
+                <p class="car-subtitle">The True Mid-Sized SUV 🏔️⚡</p>
+              </div>
+
+              <div class="car-image">
+                <img
+                  src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=600&h=400&fit=crop"
+                  alt="Tata Curvv Pure+ DCA"
+                  onerror="this.parentElement.innerHTML='<div class=image-placeholder><p>Tata Curvv Pure+ DCA</p></div>'"
+                />
+              </div>
+
+              <div class="car-specs">
+                <div class="spec-row">
+                  <span class="spec-label">Engine</span>
+                  <span class="spec-value">1.2L Turbo • 118 bhp • 170 Nm</span>
                 </div>
-            </div>
-            
-            <!-- ========== Slide 9: Conclusion ========== -->
-            <div class="swiper-slide">
-                <div class="slide-content fade-in">
-                    <div class="conclusion">
-                        <h2>The Decision is Clear</h2>
-                        
-                        <div class="takeaway">
-                            <h2 style="margin-bottom: 2rem;">Main Takeaway</h2>
-                            <div class="comparison-badges">
-                                <div class="comparison-badge punch">
-                                    <span class="emoji">👍</span>
-                                    <h3>The Punch</h3>
-                                    <p>Fits our budget today</p>
-                                </div>
-                                
-                                <div class="comparison-badge curvv">
-                                    <span class="emoji">🚀</span>
-                                    <h3>The Curvv</h3>
-                                    <p>Elevates our lifestyle, our road trips, and our future for the next 7 years</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="cta-section">
-                            <h3 style="color: var(--accent-gold); margin-bottom: 1rem;">Let's Experience the Difference</h3>
-                            <p style="margin-bottom: 2rem; font-size: 1.1rem;">Feeling is believing 🚗💫🏁</p>
-                            <button class="cta-button" onclick="alert('Ready to book your back-to-back test drives!\n\n1. Tata Punch Adventure AMT\n2. Tata Curvv Pure+ DCA\n\nContact your nearest Tata dealership today!')">
-                                Book Back-to-Back Test Drives
-                            </button>
-                            <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--text-secondary);">Punch AMT + Curvv DCA</p>
-                        </div>
-                    </div>
+                <div class="spec-row">
+                  <span class="spec-label">Transmission</span>
+                  <span class="spec-value">7-Speed DCA</span>
                 </div>
+                <div class="spec-row">
+                  <span class="spec-label">Segment</span>
+                  <span class="spec-value">Mid-Size Coupe SUV</span>
+                </div>
+                <div class="spec-row">
+                  <span class="spec-label">Boot Space</span>
+                  <span class="spec-value">500L (+37%)</span>
+                </div>
+              </div>
+
+              <div class="car-upgrades">
+                <h4>Core Upgrades</h4>
+                <ul>
+                  <li>✅ Turbocharged power for mountains</li>
+                  <li>✅ Lightning-fast DCA transmission</li>
+                  <li>✅ 215mm wide tyres for stability</li>
+                  <li>✅ True mid-size SUV platform</li>
+                </ul>
+              </div>
+
+              <div class="car-premium-badge">
+                <h4>✨ Premium DNA</h4>
+                <p>
+                  Built on larger platform with world-class 7-speed Dual Clutch Automatic. Effortless
+                  highway overtaking and confident mountain driving for the entire 7-year ownership.
+                </p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- Comparison Matrix -->
+        <section class="section reveal">
+          <div class="section-heading">
+            <p class="eyebrow">Side-by-Side</p>
+            <h2>Feature Comparison Matrix</h2>
+            <p>
+              A clear, data-driven comparison across all critical dimensions for long-term ownership.
+            </p>
+          </div>
+
+          <div class="comparison-table-wrapper">
+            <table class="comparison-table">
+              <thead>
+                <tr>
+                  <th>Category</th>
+                  <th>Punch Adventure AMT</th>
+                  <th>Curvv Pure+ DCA</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="category">Engine Type</td>
+                  <td class="punch-col">1.2L NA (87 bhp)</td>
+                  <td class="curvv-col">✅ 1.2L Turbo (118 bhp, 170 Nm)</td>
+                </tr>
+                <tr>
+                  <td class="category">Transmission</td>
+                  <td class="punch-col">⚠️ 5-Speed AMT (laggy)</td>
+                  <td class="curvv-col">✅ 7-Speed DCA (seamless)</td>
+                </tr>
+                <tr>
+                  <td class="category">Segment</td>
+                  <td class="punch-col">Micro-SUV (hatchback platform)</td>
+                  <td class="curvv-col">✅ Mid-Size Coupe SUV</td>
+                </tr>
+                <tr>
+                  <td class="category">Boot Space</td>
+                  <td class="punch-col">366L (limited)</td>
+                  <td class="curvv-col">✅ 500L (excellent)</td>
+                </tr>
+                <tr>
+                  <td class="category">Camping Potential</td>
+                  <td class="punch-col">❌ Limited</td>
+                  <td class="curvv-col">✅ Excellent</td>
+                </tr>
+                <tr>
+                  <td class="category">Road Presence</td>
+                  <td class="punch-col">⚠️ Common City Car</td>
+                  <td class="curvv-col">✨ Premium Head-Turner</td>
+                </tr>
+                <tr>
+                  <td class="category">Highway Performance</td>
+                  <td class="punch-col">⚠️ Limited</td>
+                  <td class="curvv-col">✅ Effortless</td>
+                </tr>
+                <tr>
+                  <td class="category">Mountain Driving</td>
+                  <td class="punch-col">⚠️ Struggles</td>
+                  <td class="curvv-col">✅ Confident</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- Aura Section -->
+        <section class="section reveal" id="aura">
+          <div class="section-heading">
+            <p class="eyebrow">Lifestyle Impact</p>
+            <h2>Elite Road Presence & "Aura Farming"</h2>
+            <p>
+              How a car makes you feel when you step out of it. Pride of ownership matters for 7 years.
+            </p>
+          </div>
+
+          <div class="aura-comparison">
+            <div class="aura-card aura-card-faded">
+              <img
+                src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=400&h=300&fit=crop"
+                alt="Punch"
+                onerror="this.parentElement.querySelector('img').style.display='none'"
+              />
+              <h3>Punch AMT</h3>
+              <p class="aura-desc">Highly practical but incredibly common on Indian roads</p>
+              <div class="aura-score">
+                <span class="aura-label">Aura Score</span>
+                <div class="aura-bar">
+                  <div class="aura-fill aura-fill-punch" style="width: 60%">
+                    <span>6/10</span>
+                  </div>
+                </div>
+              </div>
+              <p class="aura-verdict">Practical but common</p>
             </div>
-            
-        </div>
-        
-        <!-- Pagination -->
-        <div class="swiper-pagination"></div>
+
+            <div class="aura-divider">VS</div>
+
+            <div class="aura-card aura-card-premium">
+              <img
+                src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=400&h=300&fit=crop"
+                alt="Curvv"
+                onerror="this.parentElement.querySelector('img').style.display='none'"
+              />
+              <h3>Curvv DCA</h3>
+              <p class="aura-desc">Striking, futuristic Coupe-SUV silhouette is a massive head-turner</p>
+              <div class="aura-score">
+                <span class="aura-label">Aura Score</span>
+                <div class="aura-bar">
+                  <div class="aura-fill aura-fill-curvv" style="width: 95%">
+                    <span>9.5/10</span>
+                  </div>
+                </div>
+              </div>
+              <p class="aura-verdict">✨ Premium Head-Turner</p>
+            </div>
+          </div>
+
+          <div class="aura-points">
+            <ul>
+              <li>The Curvv commands premium road presence that looks and feels like a luxury segment vehicle</li>
+              <li>Immense pride of ownership every single day for the next 7 years</li>
+              <li>The Punch blends into traffic; the Curvv makes you feel special</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Camping Section -->
+        <section class="section reveal">
+          <div class="section-heading">
+            <p class="eyebrow">Adventure Ready</p>
+            <h2>Unlocking Car Camping Potential</h2>
+            <p>
+              The Curvv adapts to modern outdoor trends. Perfect for weekend mountain escapes.
+            </p>
+          </div>
+
+          <div class="camping-layout">
+            <div class="camping-hero">
+              <img
+                src="https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?w=1000&h=500&fit=crop"
+                alt="Car Camping"
+                onerror="this.parentElement.querySelector('img').style.display='none'"
+              />
+              <div class="camping-overlay">
+                <h3>⛺ The Lifestyle Flip</h3>
+                <p>Transform weekend trips into unforgettable adventures</p>
+              </div>
+            </div>
+
+            <div class="boot-comparison-section">
+              <div class="boot-card boot-card-punch">
+                <h4>Punch: 366L</h4>
+                <div class="boot-visual">
+                  <div class="boot-bar" style="width: 73%"></div>
+                </div>
+                <p>Strictly for traditional luggage. Restricts spontaneous overnight stays.</p>
+              </div>
+
+              <div class="boot-card boot-card-curvv">
+                <h4>Curvv: 500L</h4>
+                <div class="boot-visual">
+                  <div class="boot-bar" style="width: 100%"></div>
+                </div>
+                <p>+37% more space. Transforms for car camping with seats folded.</p>
+              </div>
+            </div>
+
+            <div class="camping-features">
+              <article class="camping-feature">
+                <span>✅</span>
+                <div>
+                  <h4>Lay Flat Sleeping Space</h4>
+                  <p>Perfect geometry for comfortable overnight stays in mountains</p>
+                </div>
+              </article>
+              <article class="camping-feature">
+                <span>✅</span>
+                <div>
+                  <h4>Stargazing Setup</h4>
+                  <p>Open boot, lay back, and watch the stars in comfort</p>
+                </div>
+              </article>
+              <article class="camping-feature">
+                <span>✅</span>
+                <div>
+                  <h4>Heavy Gear Storage</h4>
+                  <p>Pack all your camping equipment, bikes, and adventure essentials</p>
+                </div>
+              </article>
+              <article class="camping-feature">
+                <span>✅</span>
+                <div>
+                  <h4>Spontaneous Adventures</h4>
+                  <p>No more planning around hotel availability on road trips</p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <!-- Financial Section -->
+        <section class="section reveal" id="financial">
+          <div class="section-heading">
+            <p class="eyebrow">Breaking Down The Numbers</p>
+            <h2>The 7-Year Financial Reality</h2>
+            <p>
+              Over 84 months, a 5 Lakh difference transforms into a manageable lifestyle upgrade.
+            </p>
+          </div>
+
+          <div class="financial-breakdown">
+            <div class="financial-hero">
+              <div class="big-number-card">
+                <span class="financial-label">Total Price Difference</span>
+                <div class="big-number">₹5,00,000</div>
+                <div class="math-flow">
+                  <span>÷ 84 months =</span>
+                  <div class="monthly-cost">₹9,700/month</div>
+                </div>
+                <p class="daily-cost">That's just ₹323 per day</p>
+              </div>
+            </div>
+
+            <div class="financial-perspective">
+              <h3>Perspective: What's ₹9,700/month?</h3>
+              <div class="perspective-grid">
+                <div class="perspective-item">
+                  <span class="perspective-icon">☕</span>
+                  <p>Less than 3 premium coffees daily</p>
+                </div>
+                <div class="perspective-item">
+                  <span class="perspective-icon">🎬</span>
+                  <p>4 movie tickets per month</p>
+                </div>
+                <div class="perspective-item">
+                  <span class="perspective-icon">🍕</span>
+                  <p>2 weekend restaurant meals</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="regret-tax-card">
+              <h3>💸 The Hidden Cost: "Regret Tax"</h3>
+              <p class="regret-intro">
+                Buying a car that feels like a compromise in 3 years costs more in trade-in
+                depreciation than buying the premium vehicle today.
+              </p>
+              <div class="regret-breakdown">
+                <div class="regret-item">
+                  <strong>Punch After 3 Years</strong>
+                  <p>Feels limiting. Resale value drops faster due to micro-SUV segment saturation.</p>
+                </div>
+                <div class="regret-item">
+                  <strong>Curvv After 3 Years</strong>
+                  <p>Still premium. Better resale in mid-size coupe-SUV segment. No regrets.</p>
+                </div>
+              </div>
+              <p class="regret-cta">Don't pay the Regret Tax. Invest in the right car from day one.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Conclusion Section -->
+        <section class="cta-section section reveal" id="conclusion">
+          <div class="cta-copy">
+            <p class="eyebrow">The Decision is Clear</p>
+            <h2>Punch vs. Curvv: Our 7-Year Choice</h2>
+            <p>
+              The Punch fits our budget today. The Curvv elevates our lifestyle, road trips, and
+              future for the next 7 years.
+            </p>
+          </div>
+
+          <div class="decision-cards">
+            <div class="decision-card decision-card-punch">
+              <span class="decision-icon">👍</span>
+              <h3>Tata Punch AMT</h3>
+              <p class="decision-verdict">Fits budget today</p>
+              <ul class="decision-points">
+                <li>Practical city car</li>
+                <li>Budget-friendly option</li>
+                <li>Basic needs covered</li>
+              </ul>
+            </div>
+
+            <div class="decision-card decision-card-curvv">
+              <span class="decision-icon">🚀</span>
+              <h3>Tata Curvv DCA</h3>
+              <p class="decision-verdict">Future-ready for 7 years</p>
+              <ul class="decision-points">
+                <li>Premium road presence</li>
+                <li>Adventure capability</li>
+                <li>No regrets, only pride</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="cta-card">
+            <p class="cta-label">Next Step</p>
+            <h3>Let's Experience the Difference</h3>
+            <p>
+              Book back-to-back test drives to feel the real difference. Drive the Punch, then the
+              Curvv. The choice will be obvious.
+            </p>
+            <a class="button button-primary button-large" href="#book">
+              Book Test Drives: Punch AMT + Curvv DCA
+            </a>
+            <p class="cta-note">Feeling is believing 🚗💫</p>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <p><strong>Our Car Decision Journey</strong></p>
+        <p>Making the right choice for the next 7 years</p>
+        <p>© 2026 • Built with care and data-driven insights</p>
+      </footer>
     </div>
-    
-    <!-- Particles.js -->
-    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-    
-    <!-- Swiper JS -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    
-    <script>
-        // Initialize Swiper
-        const swiper = new Swiper('.swiper', {
-            direction: 'vertical',
-            slidesPerView: 1,
-            spaceBetween: 0,
-            mousewheel: true,
-            keyboard: {
-                enabled: true,
-            },
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-            speed: 800,
-            effect: 'slide',
-        });
-        
-        // Initialize Particles.js (only on desktop)
-        if (window.innerWidth > 768) {
-            particlesJS('particles-js', {
-                particles: {
-                    number: {
-                        value: 80,
-                        density: {
-                            enable: true,
-                            value_area: 800
-                        }
-                    },
-                    color: {
-                        value: '#FFD700'
-                    },
-                    shape: {
-                        type: 'circle',
-                    },
-                    opacity: {
-                        value: 0.5,
-                        random: true,
-                    },
-                    size: {
-                        value: 3,
-                        random: true,
-                    },
-                    line_linked: {
-                        enable: true,
-                        distance: 150,
-                        color: '#FFD700',
-                        opacity: 0.2,
-                        width: 1
-                    },
-                    move: {
-                        enable: true,
-                        speed: 2,
-                        direction: 'none',
-                        random: true,
-                        straight: false,
-                        out_mode: 'out',
-                        bounce: false,
-                    }
-                },
-                interactivity: {
-                    detect_on: 'canvas',
-                    events: {
-                        onhover: {
-                            enable: true,
-                            mode: 'grab'
-                        },
-                        resize: true
-                    },
-                    modes: {
-                        grab: {
-                            distance: 140,
-                            line_linked: {
-                                opacity: 0.5
-                            }
-                        }
-                    }
-                },
-                retina_detect: true
-            });
-        }
-        
-        // Animate elements on slide change
-        swiper.on('slideChange', function () {
-            // Re-trigger animations for the current slide
-            const currentSlide = document.querySelectorAll('.swiper-slide')[swiper.activeIndex];
-            const fadeElements = currentSlide.querySelectorAll('.fade-in');
-            fadeElements.forEach(el => {
-                el.style.animation = 'none';
-                setTimeout(() => {
-                    el.style.animation = 'fadeInUp 0.8s ease-out';
-                }, 10);
-            });
-        });
-        
-        // Animate aura bars on Slide 5
-        swiper.on('slideChange', function () {
-            if (swiper.activeIndex === 4) { // Slide 5 (0-indexed)
-                setTimeout(() => {
-                    document.querySelectorAll('.aura-fill').forEach(bar => {
-                        bar.style.transition = 'width 1.5s ease-out';
-                    });
-                }, 300);
-            }
-            
-            // Animate boot comparison on Slide 6
-            if (swiper.activeIndex === 5) { // Slide 6
-                setTimeout(() => {
-                    document.querySelectorAll('.bar-fill').forEach(bar => {
-                        bar.style.transition = 'width 1.5s ease-out';
-                    });
-                }, 300);
-            }
-        });
-    </script>
-</body>
+
+    <script src="script.js"></script>
+  </body>
 </html>
