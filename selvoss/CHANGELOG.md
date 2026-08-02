@@ -9,7 +9,9 @@
 - Added JSON-LD structured data for organization schema.
 - Created robots.txt and sitemap.xml for search engine crawlers.
 - Added Elita e-commerce project to portfolio (Shopify-powered platform at elita.co.in).
+- Added Jiwan Soap & Detergent brand showcase website to portfolio (jiwansoap.com).
 - Updated portfolio heading to reflect multiple flagship projects.
+- Temporarily hidden "How it works" and "Stack" sections (commented out).
 
 ## 2026-06-30
 - Shortened homepage by removing duplicated art sections and the separate outcomes block.

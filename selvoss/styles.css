@@ -433,10 +433,6 @@ a {
     gap: 16px;
 }
 
-.portfolio-layout-reverse {
-    grid-template-columns: 0.8fr 1.2fr !important;
-}
-
 .portfolio-feature,
 .portfolio-card {
     border: 1px solid var(--line);
