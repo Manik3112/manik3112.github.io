@@ -1,0 +1,53 @@
+---
+description: Require explicit permission before any git operations
+alwaysApply: true
+---
+
+# Git Operations Require Permission
+
+**NEVER use git commands unless the user explicitly requests them.**
+
+## Prohibited Actions (without permission)
+
+- `git add`
+- `git commit`
+- `git push`
+- `git pull`
+- `git checkout`
+- `git merge`
+- `git rebase`
+- Any other git operation
+
+## Allowed Workflow
+
+1. Make file changes when requested
+2. **STOP** - Do not commit or push
+3. Wait for user to explicitly say "commit this" or "push to git"
+4. Only then use git commands
+
+## Examples
+
+❌ **BAD** - Auto-committing after making changes:
+```
+User: "Update the homepage"
+AI: *edits file* *commits* *pushes* "Done and pushed!"
+```
+
+✅ **GOOD** - Wait for permission:
+```
+User: "Update the homepage"
+AI: *edits file* "Homepage updated in index.html"
+User: "Commit and push it"
+AI: *commits* *pushes* "Committed and pushed to master"
+```
+
+## Exception
+
+Only use git if user explicitly uses phrases like:
+- "commit this"
+- "push to git"
+- "commit and push"
+- "make a commit"
+- Direct git command requests
+
+**Default behavior: Make changes, don't commit.**

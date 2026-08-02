@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-08-02
+- Rebranded site as "Selvoss by Anthem" to reflect launch by Anthem Advertising Agency.
+- Added Anthem heritage messaging (serving clients since 1987) to hero section.
+- Expanded footer with Anthem parent company information and full contact details.
+- Updated meta description and page title to include Anthem branding.
+
 ## 2026-06-30
 - Shortened homepage by removing duplicated art sections and the separate outcomes block.
 - Replaced Togethr placeholder art with a real browser screenshot in portfolio.
