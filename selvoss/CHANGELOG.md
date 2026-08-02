@@ -5,6 +5,11 @@
 - Added Anthem heritage messaging (serving clients since 1987) to hero section.
 - Expanded footer with Anthem parent company information and full contact details.
 - Updated meta description and page title to include Anthem branding.
+- Added comprehensive SEO meta tags (OG, Twitter cards, keywords, robots).
+- Added JSON-LD structured data for organization schema.
+- Created robots.txt and sitemap.xml for search engine crawlers.
+- Added Elita e-commerce project to portfolio (Shopify-powered platform at elita.co.in).
+- Updated portfolio heading to reflect multiple flagship projects.
 
 ## 2026-06-30
 - Shortened homepage by removing duplicated art sections and the separate outcomes block.
