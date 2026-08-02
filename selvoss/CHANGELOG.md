@@ -1,6 +1,8 @@
 # Changelog
 
 ## 2026-08-02
+- Integrated Selvoss logo image into header brand and favicon.
+- Replaced text-based brand mark with actual logo (assets/logo.png).
 - Rebranded site as "Selvoss by Anthem" to reflect launch by Anthem Advertising Agency.
 - Added Anthem heritage messaging (serving clients since 1987) to hero section.
 - Expanded footer with Anthem parent company information and full contact details.
