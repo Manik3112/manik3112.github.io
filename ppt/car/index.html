@@ -162,11 +162,35 @@
               </div>
 
               <div class="car-image">
-                <img
-                  src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=600&h=400&fit=crop"
-                  alt="Tata Punch Adventure AMT"
-                  onerror="this.parentElement.innerHTML='<div class=image-placeholder><p>Tata Punch Adventure AMT</p></div>'"
-                />
+                <svg viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <linearGradient id="punchGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" style="stop-color:#f59e0b;stop-opacity:0.2" />
+                      <stop offset="100%" style="stop-color:#fbbf24;stop-opacity:0.3" />
+                    </linearGradient>
+                  </defs>
+                  <rect width="600" height="400" fill="url(#punchGrad)"/>
+                  <!-- Compact car silhouette -->
+                  <g transform="translate(100, 150)">
+                    <!-- Body -->
+                    <rect x="20" y="40" width="360" height="60" rx="8" fill="#f59e0b" opacity="0.8"/>
+                    <!-- Roof -->
+                    <path d="M 100 40 L 140 10 L 260 10 L 300 40 Z" fill="#f59e0b" opacity="0.9"/>
+                    <!-- Windows -->
+                    <rect x="110" y="15" width="60" height="22" rx="3" fill="#fff" opacity="0.3"/>
+                    <rect x="230" y="15" width="60" height="22" rx="3" fill="#fff" opacity="0.3"/>
+                    <!-- Wheels -->
+                    <circle cx="100" cy="100" r="25" fill="#334155"/>
+                    <circle cx="100" cy="100" r="15" fill="#64748b"/>
+                    <circle cx="300" cy="100" r="25" fill="#334155"/>
+                    <circle cx="300" cy="100" r="15" fill="#64748b"/>
+                    <!-- Details -->
+                    <rect x="40" y="50" width="30" height="15" rx="3" fill="#fff" opacity="0.4"/>
+                    <rect x="330" y="50" width="30" height="15" rx="3" fill="#fff" opacity="0.4"/>
+                  </g>
+                  <text x="300" y="320" font-family="Inter, sans-serif" font-size="24" font-weight="700" fill="#f59e0b" text-anchor="middle">Tata Punch</text>
+                  <text x="300" y="350" font-family="Inter, sans-serif" font-size="16" fill="#94a3b8" text-anchor="middle">Micro-SUV • Compact</text>
+                </svg>
               </div>
 
               <div class="car-specs">
@@ -216,11 +240,37 @@
               </div>
 
               <div class="car-image">
-                <img
-                  src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=600&h=400&fit=crop"
-                  alt="Tata Curvv Pure+ DCA"
-                  onerror="this.parentElement.innerHTML='<div class=image-placeholder><p>Tata Curvv Pure+ DCA</p></div>'"
-                />
+                <svg viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <linearGradient id="curvvGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" style="stop-color:#10b981;stop-opacity:0.2" />
+                      <stop offset="100%" style="stop-color:#34d399;stop-opacity:0.3" />
+                    </linearGradient>
+                  </defs>
+                  <rect width="600" height="400" fill="url(#curvvGrad)"/>
+                  <!-- Premium coupe-SUV silhouette -->
+                  <g transform="translate(70, 140)">
+                    <!-- Body (longer, lower) -->
+                    <rect x="20" y="50" width="420" height="65" rx="10" fill="#10b981" opacity="0.8"/>
+                    <!-- Coupe roofline (sloping) -->
+                    <path d="M 110 50 L 150 15 L 290 15 L 360 50 Z" fill="#10b981" opacity="0.9"/>
+                    <!-- Windows -->
+                    <rect x="120" y="20" width="70" height="25" rx="4" fill="#fff" opacity="0.3"/>
+                    <rect x="260" y="20" width="90" height="25" rx="4" fill="#fff" opacity="0.3"/>
+                    <!-- Wheels (larger) -->
+                    <circle cx="110" cy="115" r="30" fill="#1e293b"/>
+                    <circle cx="110" cy="115" r="18" fill="#64748b"/>
+                    <circle cx="350" cy="115" r="30" fill="#1e293b"/>
+                    <circle cx="350" cy="115" r="18" fill="#64748b"/>
+                    <!-- LED lights -->
+                    <rect x="40" y="58" width="35" height="18" rx="4" fill="#fff" opacity="0.5"/>
+                    <rect x="385" y="58" width="35" height="18" rx="4" fill="#fff" opacity="0.5"/>
+                    <!-- Premium badge -->
+                    <circle cx="230" cy="75" r="8" fill="#fbbf24" opacity="0.6"/>
+                  </g>
+                  <text x="300" y="320" font-family="Inter, sans-serif" font-size="24" font-weight="700" fill="#10b981" text-anchor="middle">Tata Curvv</text>
+                  <text x="300" y="350" font-family="Inter, sans-serif" font-size="16" fill="#94a3b8" text-anchor="middle">Mid-Size Coupe SUV • Premium</text>
+                </svg>
               </div>
 
               <div class="car-specs">
@@ -340,11 +390,22 @@
 
           <div class="aura-comparison">
             <div class="aura-card aura-card-faded">
-              <img
-                src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=400&h=300&fit=crop"
-                alt="Punch"
-                onerror="this.parentElement.querySelector('img').style.display='none'"
-              />
+              <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" style="border-radius: 16px; margin-bottom: 16px;">
+                <defs>
+                  <linearGradient id="auraP" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#cbd5e1;stop-opacity:0.3" />
+                    <stop offset="100%" style="stop-color:#e2e8f0;stop-opacity:0.4" />
+                  </linearGradient>
+                </defs>
+                <rect width="400" height="300" fill="url(#auraP)"/>
+                <g transform="translate(50, 100)">
+                  <rect x="15" y="30" width="270" height="45" rx="6" fill="#94a3b8" opacity="0.5"/>
+                  <path d="M 75 30 L 105 10 L 195 10 L 225 30 Z" fill="#94a3b8" opacity="0.6"/>
+                  <circle cx="75" cy="75" r="20" fill="#475569"/>
+                  <circle cx="225" cy="75" r="20" fill="#475569"/>
+                </g>
+                <text x="200" y="240" font-family="Inter, sans-serif" font-size="16" font-weight="600" fill="#64748b" text-anchor="middle">Common on roads</text>
+              </svg>
               <h3>Punch AMT</h3>
               <p class="aura-desc">Highly practical but incredibly common on Indian roads</p>
               <div class="aura-score">
@@ -361,11 +422,33 @@
             <div class="aura-divider">VS</div>
 
             <div class="aura-card aura-card-premium">
-              <img
-                src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=400&h=300&fit=crop"
-                alt="Curvv"
-                onerror="this.parentElement.querySelector('img').style.display='none'"
-              />
+              <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" style="border-radius: 16px; margin-bottom: 16px;">
+                <defs>
+                  <linearGradient id="auraC" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#10b981;stop-opacity:0.3" />
+                    <stop offset="100%" style="stop-color:#34d399;stop-opacity:0.4" />
+                  </linearGradient>
+                  <filter id="glow">
+                    <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                    <feMerge>
+                      <feMergeNode in="coloredBlur"/>
+                      <feMergeNode in="SourceGraphic"/>
+                    </feMerge>
+                  </filter>
+                </defs>
+                <rect width="400" height="300" fill="url(#auraC)"/>
+                <g transform="translate(35, 95)" filter="url(#glow)">
+                  <rect x="15" y="35" width="310" height="50" rx="8" fill="#10b981" opacity="0.8"/>
+                  <path d="M 80 35 L 110 8 L 220 8 L 270 35 Z" fill="#10b981" opacity="0.9"/>
+                  <circle cx="85" cy="85" r="23" fill="#059669"/>
+                  <circle cx="85" cy="85" r="14" fill="#34d399"/>
+                  <circle cx="255" cy="85" r="23" fill="#059669"/>
+                  <circle cx="255" cy="85" r="14" fill="#34d399"/>
+                  <!-- Premium stars -->
+                  <text x="170" y="30" font-size="20" fill="#fbbf24">✨</text>
+                </g>
+                <text x="200" y="240" font-family="Inter, sans-serif" font-size="16" font-weight="600" fill="#10b981" text-anchor="middle">Head-turner presence</text>
+              </svg>
               <h3>Curvv DCA</h3>
               <p class="aura-desc">Striking, futuristic Coupe-SUV silhouette is a massive head-turner</p>
               <div class="aura-score">
@@ -401,12 +484,73 @@
 
           <div class="camping-layout">
             <div class="camping-hero">
-              <img
-                src="https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?w=1000&h=500&fit=crop"
-                alt="Car Camping"
-                onerror="this.parentElement.querySelector('img').style.display='none'"
-              />
+              <svg viewBox="0 0 1000 500" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%;">
+                <defs>
+                  <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" style="stop-color:#0c4a6e;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#075985;stop-opacity:1" />
+                  </linearGradient>
+                  <radialGradient id="moonGrad">
+                    <stop offset="0%" style="stop-color:#fef3c7;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#fde68a;stop-opacity:0.8" />
+                  </radialGradient>
+                </defs>
+                
+                <!-- Night sky -->
+                <rect width="1000" height="500" fill="url(#skyGrad)"/>
+                
+                <!-- Stars -->
+                <circle cx="150" cy="80" r="2" fill="#fff" opacity="0.8"/>
+                <circle cx="300" cy="60" r="1.5" fill="#fff" opacity="0.9"/>
+                <circle cx="450" cy="100" r="2" fill="#fff" opacity="0.7"/>
+                <circle cx="600" cy="70" r="1" fill="#fff" opacity="0.9"/>
+                <circle cx="750" cy="90" r="2" fill="#fff" opacity="0.8"/>
+                <circle cx="850" cy="50" r="1.5" fill="#fff" opacity="0.7"/>
+                <circle cx="200" cy="120" r="1" fill="#fff" opacity="0.9"/>
+                <circle cx="400" cy="50" r="1.5" fill="#fff" opacity="0.8"/>
+                <circle cx="700" cy="110" r="1" fill="#fff" opacity="0.9"/>
+                <circle cx="900" cy="80" r="2" fill="#fff" opacity="0.8"/>
+                
+                <!-- Moon -->
+                <circle cx="850" cy="120" r="40" fill="url(#moonGrad)"/>
+                
+                <!-- Mountains -->
+                <path d="M 0 350 L 200 200 L 400 320 L 0 320 Z" fill="#0f172a" opacity="0.7"/>
+                <path d="M 300 320 L 500 180 L 700 280 L 1000 320 L 300 320 Z" fill="#1e293b" opacity="0.6"/>
+                
+                <!-- Ground -->
+                <rect y="320" width="1000" height="180" fill="#064e3b" opacity="0.8"/>
+                
+                <!-- Car with open boot -->
+                <g transform="translate(250, 300)">
+                  <!-- Car body -->
+                  <rect x="20" y="40" width="350" height="55" rx="8" fill="#10b981" opacity="0.9"/>
+                  <path d="M 100 40 L 130 15 L 240 15 L 290 40 Z" fill="#10b981" opacity="0.95"/>
+                  <!-- Open boot -->
+                  <path d="M 370 40 L 420 20 L 420 95 L 370 95 Z" fill="#059669" opacity="0.8"/>
+                  <rect x="375" y="50" width="40" height="35" fill="#7dd3fc" opacity="0.3"/>
+                  <!-- Wheels -->
+                  <circle cx="100" cy="95" r="22" fill="#1e293b"/>
+                  <circle cx="290" cy="95" r="22" fill="#1e293b"/>
+                </g>
+                
+                <!-- Tent -->
+                <g transform="translate(650, 300)">
+                  <path d="M 50 100 L 100 30 L 150 100 Z" fill="#dc2626" opacity="0.9"/>
+                  <rect x="70" y="70" width="25" height="30" fill="#451a03" opacity="0.7"/>
+                </g>
+                
+                <!-- Campfire -->
+                <g transform="translate(450, 350)">
+                  <ellipse cx="30" cy="50" rx="25" ry="8" fill="#78350f" opacity="0.6"/>
+                  <path d="M 25 45 L 30 30 L 35 45 Z" fill="#f59e0b" opacity="0.9"/>
+                  <path d="M 27 40 L 30 28 L 33 40 Z" fill="#fbbf24" opacity="0.9"/>
+                </g>
+              </svg>
               <div class="camping-overlay">
+                <h3>⛺ The Lifestyle Flip</h3>
+                <p>Transform weekend trips into unforgettable adventures</p>
+              </div>
                 <h3>⛺ The Lifestyle Flip</h3>
                 <p>Transform weekend trips into unforgettable adventures</p>
               </div>

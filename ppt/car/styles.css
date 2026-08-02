@@ -558,7 +558,8 @@ a {
   background: var(--bg);
 }
 
-.car-image img {
+.car-image img,
+.car-image svg {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -743,11 +744,14 @@ a {
   transition: all 0.3s ease;
 }
 
-.aura-card img {
+.aura-card img,
+.aura-card svg {
   border-radius: var(--radius-md);
   margin-bottom: 16px;
   aspect-ratio: 4/3;
   object-fit: cover;
+  width: 100%;
+  height: auto;
 }
 
 .aura-card h3 {
@@ -874,7 +878,8 @@ a {
   background: var(--bg);
 }
 
-.camping-hero img {
+.camping-hero img,
+.camping-hero svg {
   width: 100%;
   height: 100%;
   object-fit: cover;
